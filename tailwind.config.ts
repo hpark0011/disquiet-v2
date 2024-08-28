@@ -52,6 +52,7 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'home-feed-bg': '#f5f5f7',
       },
       borderRadius: {
         lg: 'var(--radius)',
