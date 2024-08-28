@@ -1,15 +1,8 @@
 import React from 'react';
-import LeftSidebar from './components/LeftSidebar';
-import RightBanners from './components/RightBanners';
+import Layout from './components/Layout';
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className='flex gap-8 min-h-screen'>
-      <LeftSidebar />
-      {children}
-      <RightBanners />
-    </div>
-  );
+const LandingLayout = ({ children }: { children: React.ReactNode }) => {
+  return <Layout>{children}</Layout>;
 };
 
-export default layout;
+export default LandingLayout;
