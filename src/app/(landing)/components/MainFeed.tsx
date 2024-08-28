@@ -1,47 +1,39 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
-import { Quiz } from '@/types/quiz';
+import React from 'react';
 import { scenarios, mockPMGame } from '@/data/pmGameData';
-import QuizCreator from '@/components/QuizCreator';
-import QuizList from '@/components/QuizList';
-import PMGamePlayer from '@/components/PMGamePlayer';
+import { Button } from '@/components/ui/button';
+
+import PMGamePlayer from '@/components/quiz/PMGamePlayer';
 import TwitterLikeEditor from '@/components/TwitterLikeEditor';
+import { useQuiz } from '@/hooks/useQuiz';
+import QuizCreator from '@/components/quiz/QuizCreator';
+import QuizList from '@/components/quiz/QuizList';
 
 const MainFeed: React.FC = () => {
-  const [quizzes, setQuizzes] = useState<Quiz[]>([]);
-  const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
-  const [showMockGame, setShowMockGame] = useState(false);
-
-  const handleCreateQuiz = useCallback((newQuiz: Quiz) => {
-    setQuizzes((prevQuizzes) => [...prevQuizzes, newQuiz]);
-  }, []);
-
-  const handleStartQuiz = useCallback((quiz: Quiz) => {
-    setCurrentQuiz(quiz);
-    setShowMockGame(true);
-  }, []);
-
-  const handleCloseGame = useCallback(() => {
-    setShowMockGame(false);
-    setCurrentQuiz(null);
-  }, []);
+  const {
+    quizzes,
+    currentQuiz,
+    showMockGame,
+    handleCreateQuiz,
+    handleStartQuiz,
+    handleCloseGame,
+  } = useQuiz();
 
   return (
     <div className='max-w-4xl mx-auto p-4 space-y-8'>
-      <h1 className='text-3xl font-bold text-gray-800'>Maker Log Feed</h1>
-
+      <h1 className='text-base font-bold text-gray-800'>Maker Log Feed</h1>
       <TwitterLikeEditor />
-
       <section className='bg-white shadow rounded-lg p-6'>
         <h2 className='text-2xl font-semibold mb-4'>PM Scenario Game</h2>
         <p className='mb-4 text-gray-600'>{mockPMGame.description}</p>
-        <button
+        <Button
           onClick={() => handleStartQuiz(mockPMGame)}
-          className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-200'
+          size={'sm'}
+          variant='primary'
         >
-          Start PM Scenario Game
-        </button>
+          PM 테스트 시작
+        </Button>
       </section>
 
       {showMockGame && currentQuiz && (
@@ -53,7 +45,6 @@ const MainFeed: React.FC = () => {
       )}
 
       <QuizCreator onCreateQuiz={handleCreateQuiz} />
-
       <QuizList quizzes={quizzes} onStartQuiz={handleStartQuiz} />
     </div>
   );

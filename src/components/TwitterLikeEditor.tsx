@@ -28,20 +28,20 @@ const TwitterLikeEditor: React.FC = () => {
         <div className='flex-grow'>
           <EditorContent
             editor={editor}
-            className='min-h-[100px] border rounded-lg p-2 mb-2'
+            className='min-h-[72px] border rounded-lg p-2 mb-2'
           />
           <div className='flex justify-between items-center'>
             <div className='flex space-x-2'>
               <button className='text-blue-500'>
-                <Icon name='image' className='w-5 h-5' />
+                <Icon name='image' className='w-5 h-4' />
               </button>
               <button className='text-blue-500'>
-                <Icon name='paperclip' className='w-5 h-5' />
+                <Icon name='paperclip' className='w-5 h-4' />
               </button>
             </div>
             <button
               onClick={handlePost}
-              className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition duration-200'
+              className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 text-sm rounded-full transition duration-200'
               disabled={!content.trim()}
             >
               Post
