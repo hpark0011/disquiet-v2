@@ -1,68 +1,181 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import Icon from '@/components/Icon';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
-const LeftSidebar = () => {
+type NavItem = {
+  href: string;
+  icon: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  { href: '/', icon: 'house', label: 'Home' },
+  { href: '/search', icon: 'magnifying.glass', label: 'Search' },
+  { href: '/notifications', icon: 'bell', label: 'Notifications' },
+  { href: '/inbox', icon: 'paperplane', label: 'Inbox' },
+  { href: '/directory', icon: 'person.2.fill', label: 'User Directory' },
+];
+
+const NewPostOptions = [
+  { href: '/new-log', icon: 'doc.richtext.fill', label: 'New Log' },
+  { href: '/new-article', icon: 'doc.fill', label: 'New Article' },
+];
+
+const NavButton: React.FC<
+  NavItem & { expanded: boolean; onClick: () => void }
+> = ({ href, icon, label, expanded, onClick }) => (
+  <Button
+    variant='ghost'
+    className={`w-full justify-start transition-all duration-300 ease-in-out ${
+      expanded ? 'px-3' : 'px-2'
+    }`}
+    asChild
+    onClick={onClick}
+  >
+    <Link href={href} className='flex items-center'>
+      <Icon
+        name={icon}
+        className='w-7 h-7 min-w-[28px] min-h-[28px] flex-shrink-0'
+      />
+      <span
+        className={`ml-3 whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out ${
+          expanded ? 'w-auto opacity-100' : 'w-0 opacity-0'
+        }`}
+      >
+        {label}
+      </span>
+    </Link>
+  </Button>
+);
+
+const LeftSidebar: React.FC = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseEnter = () => setExpanded(true);
+  const handleMouseLeave = () => {
+    if (!dropdownOpen) {
+      setExpanded(false);
+    }
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      sidebarRef.current &&
+      !sidebarRef.current.contains(event.target as Node)
+    ) {
+      setExpanded(false);
+      setDropdownOpen(false);
+    }
+  };
+
+  const handleNavClick = () => {
+    setExpanded(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className='text-gray-900 p-4 w-64 flex flex-col h-full'>
-      <div className='mb-6'>
+    <aside
+      ref={sidebarRef}
+      className={`fixed left-0 top-0 text-gray-900 p-4 flex flex-col h-screen transition-all duration-300 ease-in-out ${
+        expanded || dropdownOpen ? 'w-[196px]' : 'w-[72px]'
+      }`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className='flex-shrink-0 mb-6 flex w-fit ml-1'>
         <Logo />
       </div>
-      <nav className='flex-grow'>
-        <ul>
-          <li className='mb-2'>
-            <Button variant='ghost' className='w-full justify-start' asChild>
-              <Link href='/'>
-                <Icon name='house' className='h-5 w-5 mr-2' />
-                Home
-              </Link>
-            </Button>
-          </li>
-          <li className='mb-2'>
-            <Button variant='ghost' className='w-full justify-start' asChild>
-              <Link href='/marketplace'>
-                <Icon name='briefcase.fill' className='h-5 w-5 mr-2' />
-                Product Marketplace
-              </Link>
-            </Button>
-          </li>
-          <li className='mb-2'>
-            <Button variant='ghost' className='w-full justify-start' asChild>
-              <Link href='/maker-log'>
-                <Icon name='doc.richtext.fill' className='h-5 w-5 mr-2' />
-                Maker Log
-              </Link>
-            </Button>
-          </li>
-          <li className='mb-2'>
-            <Button variant='ghost' className='w-full justify-start' asChild>
-              <Link href='/profile'>
-                <Icon name='person.crop.circle.fill' className='h-5 w-5 mr-2' />
-                My Profile
-              </Link>
-            </Button>
-          </li>
-        </ul>
-      </nav>
-      <div className='mt-4'>
-        <Button className='w-full' variant='default'>
-          <Icon name='plus' className='h-5 w-5 mr-2' />
-          New Post
-        </Button>
+      <div className='flex-grow flex flex-col justify-center'>
+        <nav>
+          <ul className='space-y-2'>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <NavButton
+                  {...item}
+                  expanded={expanded || dropdownOpen}
+                  onClick={handleNavClick}
+                />
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className='mt-4'>
+          <DropdownMenu onOpenChange={setDropdownOpen}>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className={`w-full justify-start transition-all duration-300 ease-in-out ${
+                  expanded || dropdownOpen ? 'px-3' : 'px-2'
+                }`}
+                variant='default'
+              >
+                <Icon
+                  name='plus'
+                  className='w-7 h-7 min-w-[28px] min-h-[28px] flex-shrink-0'
+                />
+                <span
+                  className={`ml-3 whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out ${
+                    expanded || dropdownOpen
+                      ? 'w-auto opacity-100'
+                      : 'w-0 opacity-0'
+                  }`}
+                >
+                  New Post
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {NewPostOptions.map((option) => (
+                <DropdownMenuItem key={option.href} onClick={handleNavClick}>
+                  <Link href={option.href} className='flex items-center w-full'>
+                    <Icon
+                      name={option.icon}
+                      className='w-7 h-7 min-w-[28px] min-h-[28px] mr-2'
+                    />
+                    {option.label}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
-      <div className='mt-auto pt-4'>
-        <Button variant='ghost' className='w-full justify-start'>
-          <Avatar className='h-8 w-8 mr-2'>
+      <div className='flex-shrink-0 mt-auto pt-4 flex flex-start'>
+        <Button
+          variant='ghost'
+          className='w-full justify-center'
+          onClick={handleNavClick}
+        >
+          <Avatar className='h-8 w-8'>
             <AvatarImage src='/avatar.png' alt='User' />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
-          User Name
+          {(expanded || dropdownOpen) && (
+            <span className='ml-3 whitespace-nowrap overflow-hidden'>
+              User Name
+            </span>
+          )}
         </Button>
       </div>
-    </div>
+    </aside>
   );
 };
 
