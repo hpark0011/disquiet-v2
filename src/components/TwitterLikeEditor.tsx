@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Icon from '@/components/Icon';
+import { Button } from './ui/button';
 
 const TwitterLikeEditor: React.FC = () => {
   const [content, setContent] = useState('');
@@ -22,7 +23,7 @@ const TwitterLikeEditor: React.FC = () => {
   };
 
   return (
-    <div className='bg-white shadow rounded-lg p-4'>
+    <div className='bg-white shadow rounded-2xl p-4'>
       <div className='flex items-start space-x-4'>
         <Icon name='user' className='w-10 h-10 text-gray-400' />
         <div className='flex-grow'>
@@ -39,13 +40,14 @@ const TwitterLikeEditor: React.FC = () => {
                 <Icon name='paperclip' className='w-5 h-4' />
               </button>
             </div>
-            <button
-              onClick={handlePost}
-              className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 text-sm rounded-full transition duration-200'
-              disabled={!content.trim()}
-            >
-              Post
-            </button>
+            <div className='flex space-x-2'>
+              <Button variant='secondary' size='sm'>
+                Settings
+              </Button>
+              <Button variant='primary' size='sm' onClick={handlePost}>
+                Post
+              </Button>
+            </div>
           </div>
         </div>
       </div>

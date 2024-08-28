@@ -42,7 +42,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   const progress = ((currentScenario + 1) / scenarios.length) * 100;
 
   return (
-    <div className='bg-white shadow rounded-xl p-6'>
+    <div className='bg-white'>
       <h2 className='text-2xl font-semibold mb-4'>{quiz.title}</h2>
       <div className='mb-4 bg-gray-200 rounded-full h-2.5'>
         <div

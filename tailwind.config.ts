@@ -75,9 +75,13 @@ const config = {
       },
       boxShadow: {
         'primary-button':
-          '0px 4px 8px -2px rgba(0, 0, 0, 0.25), 0px 0px 0px 0px rgba(0, 0, 0, 0.4)',
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.25), 0px 0px 0px 0px rgba(0, 0, 0, 0.4)',
         'primary-button-hover':
-          '0px 4px 8px -2px rgba(0, 0, 0, 0.25), 0px 0px 0px 4px rgba(0, 0, 0, 0.4)',
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.25), 0px 0px 0px 4px rgba(0, 0, 0, 0.4)',
+        'secondary-button':
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 0px rgba(0, 0, 0, 0.4)',
+        'secondary-button-hover':
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(0, 0, 0, 0.1)',
       },
     },
   },
