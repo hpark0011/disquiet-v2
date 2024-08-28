@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Quiz, Scenario, Impact } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
+import { motion } from 'framer-motion';
 
 interface PMGamePlayerProps {
   quiz: Quiz;
@@ -42,28 +43,45 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   const progress = ((currentScenario + 1) / scenarios.length) * 100;
 
   return (
-    <div className='bg-white'>
-      <h2 className='text-2xl font-semibold mb-4'>{quiz.title}</h2>
-      <div className='mb-4 bg-gray-200 rounded-full h-2.5'>
-        <div
-          className='bg-blue-600 h-2.5 rounded-full transition-all duration-300 ease-in-out'
+    <div className='bg-transparent'>
+      <div className='mb-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent h-0.5 relative overflow-hidden rounded-full'>
+        <motion.div
+          className='bg-gradient-to-r from-transparent via-[#6d55ff] to-transparent h-0.5 absolute left-0 top-0 overflow-hidden rounded-full'
           style={{ width: `${progress}%` }}
-        ></div>
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div
+            className='absolute inset-0 bg-gradient-to-r from-transparent via-blue-100 to-transparent'
+            initial={{ x: '-100%' }}
+            animate={{ x: '100%' }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+              ease: 'linear',
+            }}
+            style={{ width: '100%' }}
+          />
+        </motion.div>
       </div>
+      <h2 className='text-xl font-semibold mb-4'>{quiz.title}</h2>
+
       {!gameComplete ? (
         <>
-          <h3 className='text-lg font-semibold mb-2'>
+          <h3 className='text-base font-semibold mb-2'>
             Scenario {currentScenario + 1} of {scenarios.length}:
           </h3>
-          <p className='mb-4'>{scenarios[currentScenario].scenario}</p>
-          <div className='space-y-2'>
+          <p className='mb-6'>{scenarios[currentScenario].scenario}</p>
+          <div className='grid grid-cols-2 gap-1'>
             {scenarios[currentScenario].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleSelectOption(index)}
-                className='w-full text-left p-2 bg-gray-100 hover:bg-gray-200 rounded transition duration-200'
+                className='text-left p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition duration-200 flex flex-col items-center justify-center h-fit'
               >
-                {option.text}
+                <span className='text-3xl mb-4'>{option.emoji}</span>
+                <span className='text-sm text-center'>{option.text}</span>
               </button>
             ))}
           </div>

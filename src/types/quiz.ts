@@ -7,6 +7,7 @@ export interface Impact {
 
 export interface Option {
   text: string;
+  emoji: string;
   outcomes: Impact;
 }
 

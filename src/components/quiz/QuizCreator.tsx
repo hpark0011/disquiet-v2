@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Quiz } from '@/types/quiz';
+import { Button } from '../ui/button';
 
 interface QuizCreatorProps {
   onCreateQuiz: (quiz: Quiz) => void;
@@ -57,12 +58,9 @@ const QuizCreator: React.FC<QuizCreatorProps> = ({ onCreateQuiz }) => {
             required
           ></textarea>
         </div>
-        <button
-          type='submit'
-          className='w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-200'
-        >
+        <Button variant='primary' type='submit'>
           Create Quiz
-        </button>
+        </Button>
       </div>
     </form>
   );

@@ -7,6 +7,7 @@ export const scenarios: Scenario[] = [
     options: [
       {
         text: 'Roll out the feature to all users immediately',
+        emoji: '🚀',
         outcomes: {
           userGrowth: 5,
           revenueGrowth: 2,
@@ -16,6 +17,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Conduct A/B testing with a small group of users',
+        emoji: '🧪',
         outcomes: {
           userGrowth: 2,
           revenueGrowth: 1,
@@ -25,6 +27,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Delay the feature launch and optimize for performance',
+        emoji: '⏳',
         outcomes: {
           userGrowth: -1,
           revenueGrowth: -2,
@@ -34,6 +37,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Make the feature optional and let users decide',
+        emoji: '🔀',
         outcomes: {
           userGrowth: 3,
           revenueGrowth: 2,
@@ -49,6 +53,7 @@ export const scenarios: Scenario[] = [
     options: [
       {
         text: 'Lower your prices to match the competitor',
+        emoji: '📉',
         outcomes: {
           userGrowth: 4,
           revenueGrowth: -3,
@@ -58,6 +63,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: "Launch a marketing campaign highlighting your product's unique features",
+        emoji: '📢',
         outcomes: {
           userGrowth: 2,
           revenueGrowth: 1,
@@ -67,6 +73,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Add new premium features to justify your higher price',
+        emoji: '💸',
         outcomes: {
           userGrowth: -1,
           revenueGrowth: 4,
@@ -76,6 +83,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Ignore the competitor and stick to your current strategy',
+        emoji: '🙅‍♂️',
         outcomes: {
           userGrowth: -3,
           revenueGrowth: -1,
@@ -91,6 +99,7 @@ export const scenarios: Scenario[] = [
     options: [
       {
         text: 'Conduct user surveys to understand the reasons behind the decline',
+        emoji: '📊',
         outcomes: {
           userGrowth: 1,
           revenueGrowth: 0,
@@ -100,6 +109,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Launch a new feature to re-engage users',
+        emoji: '🚀',
         outcomes: {
           userGrowth: 2,
           revenueGrowth: 1,
@@ -109,6 +119,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Increase marketing spend to attract new users',
+        emoji: '📈',
         outcomes: {
           userGrowth: 4,
           revenueGrowth: -2,
@@ -118,6 +129,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Optimize the onboarding process for new users',
+        emoji: '📚',
         outcomes: {
           userGrowth: 2,
           revenueGrowth: 1,
@@ -133,6 +145,7 @@ export const scenarios: Scenario[] = [
     options: [
       {
         text: 'Approve the redesign and allocate resources immediately',
+        emoji: '🎨',
         outcomes: {
           userGrowth: 3,
           revenueGrowth: -1,
@@ -142,6 +155,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Request a smaller, phased approach to the redesign',
+        emoji: '📈',
         outcomes: {
           userGrowth: 1,
           revenueGrowth: 1,
@@ -151,6 +165,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Conduct user testing with prototypes before making a decision',
+        emoji: '👥',
         outcomes: {
           userGrowth: 2,
           revenueGrowth: 2,
@@ -160,6 +175,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Reject the proposal and focus on incremental improvements',
+        emoji: '🚫',
         outcomes: {
           userGrowth: -1,
           revenueGrowth: 2,
@@ -175,6 +191,7 @@ export const scenarios: Scenario[] = [
     options: [
       {
         text: "Immediately shut down the affected feature until it's fixed",
+        emoji: '🚫',
         outcomes: {
           userGrowth: -3,
           revenueGrowth: -4,
@@ -184,6 +201,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Quietly fix the issue without informing users',
+        emoji: '🤐',
         outcomes: {
           userGrowth: 0,
           revenueGrowth: 1,
@@ -193,6 +211,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Inform users, apologize, and provide a timeline for the fix',
+        emoji: '📢',
         outcomes: {
           userGrowth: -1,
           revenueGrowth: -2,
@@ -202,6 +221,7 @@ export const scenarios: Scenario[] = [
       },
       {
         text: 'Hire a third-party security firm to audit and fix the issue',
+        emoji: '🔍',
         outcomes: {
           userGrowth: 1,
           revenueGrowth: -3,
