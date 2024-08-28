@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftSidebar from './LeftSidebar';
 import RightBanners from './RightBanners';
+import LeftSidebar from './LeftSidebar/LeftSidebar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
