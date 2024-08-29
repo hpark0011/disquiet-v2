@@ -5,19 +5,13 @@ interface MetricCardProps {
   label: string;
   count: number;
   growth: number;
-  labelClassName?: string; // Add this line
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({
-  label,
-  count,
-  growth,
-  labelClassName,
-}) => {
+const MetricCard: React.FC<MetricCardProps> = ({ label, count, growth }) => {
   return (
-    <div className='flex flex-col border border-gray-200 rounded-lg p-3'>
+    <div className='flex flex-col border border-gray-100 rounded-xl p-3'>
       <div className='flex justify-between items-center mb-2'>
-        <span className='text-sm text-gray-500'>{label}</span>
+        <span className='text-xs font-medium text-gray-500'>{label}</span>
         <span
           className={`text-sm ${
             growth >= 0 ? 'text-green-500' : 'text-red-500'
@@ -26,7 +20,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
           {formatPercentage(growth)}
         </span>
       </div>
-      <span className='text-xl font-bold text-left'>{count}</span>
+      <span className='text-xl font-semibold text-left'>{count}</span>
     </div>
   );
 };

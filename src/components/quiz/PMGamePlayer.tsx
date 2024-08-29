@@ -62,17 +62,14 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
 
   const renderGameContent = () => (
     <>
-      <h2 className='text-lg font-bold mb-2'>
+      <h2 className='text-lg font-semibold mb-2'>
         {scenarios[currentScenario].title}
       </h2>
       <p className='mb-6 text-[14px] leading-[20px]'>
         {scenarios[currentScenario].scenario}
       </p>
       <div className='mb-6'>
-        <SectionHeader
-          icon='questionmark.circle'
-          label='어떻게 하시겠습니까?'
-        />
+        <SectionHeader icon='a.circle.fill' label='어떻게 하시겠습니까?' />
         <div className='space-y-[6px]'>
           {scenarios[currentScenario].options.map((option, index) => (
             <Button
@@ -87,7 +84,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
         </div>
       </div>
       <div className='mt-8'>
-        <SectionHeader icon='chart.bar' label='현재 지표' />
+        <SectionHeader icon='chart.bar.fill' label='현재 지표' />
         <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
           {Object.entries(totalOutcomes).map(([key, value]) => (
             <MetricCard
@@ -95,7 +92,6 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
               label={metricLabels[key as keyof typeof metricLabels]}
               count={value}
               growth={value / (currentScenario + 1)}
-              labelClassName='text-xs' // Add this line
             />
           ))}
         </div>
