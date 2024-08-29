@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
@@ -7,7 +7,6 @@ import SectionHeader from '@/components/quiz/SectionHeader';
 import MetricCard from '@/components/quiz/MetricCard';
 import ProgressBar from '@/components/quiz/ProgressBar';
 import Button from '@/components/quiz/Button';
-import Icon from '@/components/Icon'; // Add this line
 
 interface PMGamePlayerProps {
   quiz: Quiz;
@@ -28,6 +27,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     signUpConversion: 0,
   });
   const [gameComplete, setGameComplete] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   const progress = useMemo(
     () => ((currentScenario + 1) / scenarios.length) * 100,
@@ -36,6 +36,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
 
   const handleSelectOption = useCallback(
     (option: Option) => {
+      setSelectedOption(option);
       setTotalOutcomes((prev) => ({
         userGrowth: prev.userGrowth + option.outcomes.userGrowth,
         revenueGrowth: prev.revenueGrowth + option.outcomes.revenueGrowth,
@@ -44,11 +45,14 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
           prev.signUpConversion + option.outcomes.signUpConversion,
       }));
 
-      if (currentScenario + 1 < scenarios.length) {
-        setCurrentScenario((prev) => prev + 1);
-      } else {
-        setGameComplete(true);
-      }
+      setTimeout(() => {
+        if (currentScenario + 1 < scenarios.length) {
+          setCurrentScenario((prev) => prev + 1);
+        } else {
+          setGameComplete(true);
+        }
+        setSelectedOption(null);
+      }, 1500);
     },
     [currentScenario, scenarios.length]
   );
@@ -77,26 +81,34 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
               onClick={() => handleSelectOption(option)}
               variant='option'
               icon={option.emoji}
+              disabled={selectedOption !== null}
             >
               {option.text}
             </Button>
           ))}
         </div>
       </div>
-      <div className='mt-8'>
-        <SectionHeader icon='chart.bar.fill' label='현재 지표' />
-        <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
-          {Object.entries(totalOutcomes).map(([key, value]) => (
-            <MetricCard
-              key={key}
-              label={metricLabels[key as keyof typeof metricLabels]}
-              count={value}
-              growth={value / (currentScenario + 1)}
-            />
-          ))}
-        </div>
-      </div>
     </>
+  );
+
+  const renderMetricCards = () => (
+    <div className='mt-8'>
+      <SectionHeader icon='chart.bar.fill' label='현재 지표' />
+      <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
+        {Object.entries(totalOutcomes).map(([key, value]) => (
+          <MetricCard
+            key={key}
+            label={metricLabels[key as keyof typeof metricLabels]}
+            count={value}
+            growth={value / (currentScenario + 1)}
+            highlight={
+              selectedOption !== null &&
+              selectedOption.outcomes[key as keyof Impact] !== 0
+            }
+          />
+        ))}
+      </div>
+    </div>
   );
 
   const renderGameComplete = () => {
@@ -143,6 +155,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
             {!gameComplete ? renderGameContent() : renderGameComplete()}
           </motion.div>
         </AnimatePresence>
+        {!gameComplete && renderMetricCards()}
       </div>
     </div>
   );

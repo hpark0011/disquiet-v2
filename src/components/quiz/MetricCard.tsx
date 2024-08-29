@@ -27,7 +27,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col border border-gray-100 rounded-xl p-3 transition-all duration-300 ${
+      className={`flex flex-col border border-gray-100 rounded-xl p-2 px-[10px] transition-all duration-300 ${
         highlight ? 'bg-[rgba(109,85,255,0.05)]' : ''
       }`}
     >
@@ -41,7 +41,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
           {formatPercentage(growth)}
         </span>
       </div>
-      <div className='h-[28px] relative'>
+      <div className='h-[24px] relative'>
         {' '}
         {/* Fixed height container */}
         <AnimatePresence mode='wait'>
@@ -51,7 +51,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className={`text-xl font-semibold text-left text-black absolute`}
+            className={`text-xl font-medium text-left text-black absolute`}
           >
             {count}
           </motion.span>
