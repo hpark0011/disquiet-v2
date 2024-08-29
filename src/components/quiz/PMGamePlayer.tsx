@@ -125,7 +125,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   };
 
   return (
-    <div className='bg-white rounded-lg'>
+    <div className='bg-white rounded-lg relative'>
       <ProgressBar progress={progress} />
       <div className='pt-4'>
         <SectionHeader

@@ -36,7 +36,7 @@ const MainFeed: React.FC = () => {
       <TwitterLikeEditor />
       <div className='p-[2px] bg-gradient-to-b from-[#00000005] to-transparent rounded-[22px]'>
         <motion.section
-          className='bg-white rounded-[20px] p-6 pt-0 overflow-hidden shadow-quiz-card'
+          className='bg-white rounded-[20px] p-6 pt-0  shadow-quiz-card'
           initial={{ height: 'auto' }}
           animate={{ height: showPMGame ? 'auto' : 'auto' }}
           transition={{ duration: 0.3 }}
