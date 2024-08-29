@@ -28,7 +28,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
   return (
     <div
       className={`flex flex-col border border-gray-100 rounded-xl p-3 transition-all duration-300 ${
-        highlight ? 'bg-blue-50' : ''
+        highlight ? 'bg-[rgba(109,85,255,0.05)]' : ''
       }`}
     >
       <div className='flex justify-between items-center mb-2'>
