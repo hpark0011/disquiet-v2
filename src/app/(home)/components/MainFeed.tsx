@@ -13,6 +13,8 @@ import QuizList from '@/components/quiz/QuizList';
 import PollCreator from '@/components/poll/PollCreator';
 import PollList from '@/components/poll/PollList';
 import { usePoll } from '@/hooks/usePoll';
+import Icon from '@/components/Icon';
+import Image from 'next/image';
 
 const MainFeed: React.FC = () => {
   const { quizzes, handleCreateQuiz, handleStartQuiz, handleCloseGame } =
@@ -36,7 +38,7 @@ const MainFeed: React.FC = () => {
       <TwitterLikeEditor />
       <div className='p-[2px] bg-gradient-to-b from-[#00000005] to-transparent rounded-[22px]'>
         <motion.section
-          className='bg-white rounded-[20px] p-6 pt-0  shadow-quiz-card'
+          className='bg-white rounded-[20px] px-0 py-0  shadow-quiz-card'
           initial={{ height: 'auto' }}
           animate={{ height: showPMGame ? 'auto' : 'auto' }}
           transition={{ duration: 0.3 }}
@@ -50,7 +52,7 @@ const MainFeed: React.FC = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className='flex flex-col items-center space-y-6 h-[400px] justify-center'>
+                <div className='flex flex-col items-center space-y-6 h-[400px] justify-center px-6'>
                   <div className='flex flex-col items-center space-y-2 justify-center'>
                     <h2 className='text-2xl font-semibold'>PM Scenario Game</h2>
                     <p className='text-gray-600 text-center'>
@@ -73,6 +75,7 @@ const MainFeed: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
+                className='px-4'
               >
                 <PMGamePlayer
                   quiz={mockPMGame}
@@ -82,6 +85,25 @@ const MainFeed: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
+          <div className='mt-4 h-10 border-t border-gray-100 px-4 text-xs text-gray-500 leading-none flex gap-1 items-center'>
+            <div className='flex items-center gap-1 flex-grow'>
+              <Icon name='person.2.fill' className='w-4 h-4 ' />
+              132명 참여
+            </div>
+            <div className='flex items-center gap-1'>
+              <span> Sponsored by</span>
+              <div className='flex items-center gap-1'>
+                <Image
+                  src='/sendbird.png'
+                  alt='sendbird'
+                  width={20}
+                  height={20}
+                  className='border border-solid border-gray-100 rounded-md'
+                />
+                Sendbird
+              </div>
+            </div>
+          </div>
         </motion.section>
       </div>
       <PollCreator onCreatePoll={createPoll} />

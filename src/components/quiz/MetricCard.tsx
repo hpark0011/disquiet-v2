@@ -25,10 +25,12 @@ const MetricCard: React.FC<MetricCardProps> = ({
     }
   }, [count, prevCount]);
 
+  const highlightColor = growth >= 0 ? 'bg-green-50' : 'bg-red-50';
+
   return (
     <div
       className={`flex flex-col border border-gray-100 rounded-xl p-2 px-[10px] transition-all duration-300 ${
-        highlight ? 'bg-[rgba(109,85,255,0.05)]' : ''
+        highlight ? highlightColor : ''
       }`}
     >
       <div className='flex justify-between items-center mb-2'>

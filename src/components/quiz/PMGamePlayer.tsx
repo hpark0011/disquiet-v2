@@ -72,9 +72,9 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
       <p className='mb-6 text-[14px] leading-[20px]'>
         {scenarios[currentScenario].scenario}
       </p>
-      <div className='mb-6'>
+      <div className='mb-8'>
         <SectionHeader icon='a.circle.fill' label='어떻게 하시겠습니까?' />
-        <div className='space-y-[6px]'>
+        <div className='space-y-1 mt-2'>
           {scenarios[currentScenario].options.map((option, index) => (
             <Button
               key={index}
@@ -92,7 +92,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   );
 
   const renderMetricCards = () => (
-    <div className='mt-8'>
+    <div className='mt-4'>
       <SectionHeader icon='chart.bar.fill' label='현재 지표' />
       <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
         {Object.entries(totalOutcomes).map(([key, value]) => (
@@ -139,7 +139,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   return (
     <div className='bg-white rounded-lg relative'>
       <ProgressBar progress={progress} />
-      <div className='pt-4'>
+      <div className='pt-[12px]'>
         <SectionHeader
           icon='circle.grid.cross.fill'
           label={`시나리오 ${currentScenario + 1}/${scenarios.length}`}

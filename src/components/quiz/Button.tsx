@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    'font-medium text-[15px] py-2 px-4 rounded-lg transition duration-200';
+    'font-medium text-sm py-2 px-4 rounded-lg transition duration-200';
   const variantClasses = {
     primary: 'bg-blue-500 hover:bg-blue-600 text-white',
     option:
