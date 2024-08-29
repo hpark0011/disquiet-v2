@@ -12,6 +12,7 @@ export interface Option {
 }
 
 export interface Scenario {
+  title: string;
   scenario: string;
   options: Option[];
 }

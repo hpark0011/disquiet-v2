@@ -53,11 +53,26 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     [currentScenario, scenarios.length]
   );
 
+  const metricLabels = {
+    userGrowth: '사용자 성장',
+    revenueGrowth: '수익 성장',
+    userRetention: '사용자 유지',
+    signUpConversion: '가입 전환',
+  };
+
   const renderGameContent = () => (
     <>
-      <p className='mb-6 text-lg'>{scenarios[currentScenario].scenario}</p>
+      <h2 className='text-lg font-bold mb-2'>
+        {scenarios[currentScenario].title}
+      </h2>
+      <p className='mb-6 text-[14px] leading-[20px]'>
+        {scenarios[currentScenario].scenario}
+      </p>
       <div className='mb-6'>
-        <SectionHeader icon='questionmark.circle' label='What would you do?' />
+        <SectionHeader
+          icon='questionmark.circle'
+          label='어떻게 하시겠습니까?'
+        />
         <div className='space-y-[6px]'>
           {scenarios[currentScenario].options.map((option, index) => (
             <Button
@@ -72,14 +87,15 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
         </div>
       </div>
       <div className='mt-8'>
-        <SectionHeader icon='chart.bar' label='Current Metrics' />
+        <SectionHeader icon='chart.bar' label='현재 지표' />
         <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
           {Object.entries(totalOutcomes).map(([key, value]) => (
             <MetricCard
               key={key}
-              label={key}
+              label={metricLabels[key as keyof typeof metricLabels]}
               count={value}
               growth={value / (currentScenario + 1)}
+              labelClassName='text-xs' // Add this line
             />
           ))}
         </div>
@@ -94,19 +110,19 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     );
     return (
       <div>
-        <h3 className='text-lg font-semibold mb-2'>Game Complete!</h3>
-        <p className='mb-2'>Your Performance: {performancePercentage}%</p>
-        <p className='mb-4'>Skill Level: {skillLevel}</p>
-        <h4 className='font-semibold mb-2'>Overall Impact:</h4>
+        <h3 className='text-lg font-semibold mb-2'>게임 완료!</h3>
+        <p className='mb-2'>당신의 성과: {performancePercentage}%</p>
+        <p className='mb-4'>스킬 레벨: {skillLevel}</p>
+        <h4 className='font-semibold mb-2'>전체 영향:</h4>
         <div className='grid grid-cols-2 gap-2'>
           {Object.entries(totalOutcomes).map(([key, value]) => (
             <div key={key} className='p-2 bg-gray-100 rounded'>
-              {key}: {value}
+              {metricLabels[key as keyof typeof metricLabels]}: {value}
             </div>
           ))}
         </div>
         <Button onClick={onClose} variant='primary' className='mt-4'>
-          Close Game
+          게임 종료
         </Button>
       </div>
     );
@@ -120,7 +136,6 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
           icon='circle.grid.cross.fill'
           label={`시나리오 ${currentScenario + 1}/${scenarios.length}`}
         />
-        <h2 className='text-2xl font-bold mb-4'>{quiz.title}</h2>
         <AnimatePresence mode='wait'>
           <motion.div
             key={currentScenario}

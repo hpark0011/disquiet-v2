@@ -5,9 +5,15 @@ interface MetricCardProps {
   label: string;
   count: number;
   growth: number;
+  labelClassName?: string; // Add this line
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ label, count, growth }) => {
+const MetricCard: React.FC<MetricCardProps> = ({
+  label,
+  count,
+  growth,
+  labelClassName,
+}) => {
   return (
     <div className='flex flex-col border border-gray-200 rounded-lg p-3'>
       <div className='flex justify-between items-center mb-2'>
