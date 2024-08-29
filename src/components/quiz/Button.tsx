@@ -12,11 +12,12 @@ const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const baseClasses = 'font-bold py-2 px-4 rounded transition duration-200';
+  const baseClasses =
+    'font-medium text-[15px] py-2 px-4 rounded-lg transition duration-200';
   const variantClasses = {
     primary: 'bg-blue-500 hover:bg-blue-600 text-white',
     option:
-      'w-full bg-white border border-gray-300 hover:border-blue-500 hover:shadow-md text-left',
+      'w-full bg-white border border-gray-100 hover:shadow-lg hover:-translate-y-[1px] transition-all text-left duration-200 shadow-none',
   };
 
   return (

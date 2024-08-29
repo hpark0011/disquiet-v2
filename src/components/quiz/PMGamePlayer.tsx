@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
 import { formatPercentage } from '@/utils/formatters';
-import SectionHeader from '@/components/SectionHeader';
-import MetricCard from '@/components/MetricCard';
-import ProgressBar from '@/components/ProgressBar';
-import Button from '@/components/Button';
+import SectionHeader from '@/components/quiz/SectionHeader';
+import MetricCard from '@/components/quiz/MetricCard';
+import ProgressBar from '@/components/quiz/ProgressBar';
+import Button from '@/components/quiz/Button';
 import Icon from '@/components/Icon'; // Add this line
 
 interface PMGamePlayerProps {
@@ -58,7 +58,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
       <p className='mb-6 text-lg'>{scenarios[currentScenario].scenario}</p>
       <div className='mb-6'>
         <SectionHeader icon='questionmark.circle' label='What would you do?' />
-        <div className='space-y-3'>
+        <div className='space-y-[6px]'>
           {scenarios[currentScenario].options.map((option, index) => (
             <Button
               key={index}
@@ -113,9 +113,9 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   };
 
   return (
-    <div className='bg-white rounded-lg shadow-lg'>
+    <div className='bg-white rounded-lg'>
       <ProgressBar progress={progress} />
-      <div className='p-6'>
+      <div className='pt-4'>
         <SectionHeader
           icon='circle.grid.cross.fill'
           label={`시나리오 ${currentScenario + 1}/${scenarios.length}`}
