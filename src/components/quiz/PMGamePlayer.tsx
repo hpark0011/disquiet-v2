@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
@@ -28,30 +28,38 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     signUpConversion: 0,
   });
   const [gameComplete, setGameComplete] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   const progress = useMemo(
     () => ((currentScenario + 1) / scenarios.length) * 100,
     [currentScenario, scenarios.length]
   );
 
-  const handleSelectOption = useCallback(
-    (option: Option) => {
-      setTotalOutcomes((prev) => ({
-        userGrowth: prev.userGrowth + option.outcomes.userGrowth,
-        revenueGrowth: prev.revenueGrowth + option.outcomes.revenueGrowth,
-        userRetention: prev.userRetention + option.outcomes.userRetention,
-        signUpConversion:
-          prev.signUpConversion + option.outcomes.signUpConversion,
-      }));
+  const handleSelectOption = useCallback((option: Option) => {
+    setSelectedOption(option);
+    setTotalOutcomes((prev) => ({
+      userGrowth: prev.userGrowth + option.outcomes.userGrowth,
+      revenueGrowth: prev.revenueGrowth + option.outcomes.revenueGrowth,
+      userRetention: prev.userRetention + option.outcomes.userRetention,
+      signUpConversion:
+        prev.signUpConversion + option.outcomes.signUpConversion,
+    }));
+  }, []);
 
-      if (currentScenario + 1 < scenarios.length) {
-        setCurrentScenario((prev) => prev + 1);
-      } else {
-        setGameComplete(true);
-      }
-    },
-    [currentScenario, scenarios.length]
-  );
+  useEffect(() => {
+    if (selectedOption) {
+      const timer = setTimeout(() => {
+        if (currentScenario + 1 < scenarios.length) {
+          setCurrentScenario((prev) => prev + 1);
+        } else {
+          setGameComplete(true);
+        }
+        setSelectedOption(null);
+      }, 1500); // Delay for 1.5 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [selectedOption, currentScenario, scenarios.length]);
 
   const metricLabels = {
     userGrowth: '사용자 성장',
@@ -77,6 +85,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
               onClick={() => handleSelectOption(option)}
               variant='option'
               icon={option.emoji}
+              disabled={selectedOption !== null}
             >
               {option.text}
             </Button>
@@ -92,6 +101,10 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
               label={metricLabels[key as keyof typeof metricLabels]}
               count={value}
               growth={value / (currentScenario + 1)}
+              highlight={
+                selectedOption !== null &&
+                selectedOption.outcomes[key as keyof Impact] !== 0
+              }
             />
           ))}
         </div>
