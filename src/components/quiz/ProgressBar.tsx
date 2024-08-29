@@ -6,11 +6,18 @@ interface ProgressBarProps {
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
+  const isComplete = progress === 100;
+
   return (
-    <div className='bg-gradient-to-r from-transparent via-gray-200 to-transparent h-0.5 top-[-2px] relative overflow-hidden rounded-t-lg'>
+    <div className='bg-gradient-to-r from-transparent via-gray-200 to-transparent h-0.5 top-[-2px] relative overflow-hidden'>
       <motion.div
-        className='bg-gradient-to-r from-transparent to-[#6d55ff] h-0.5 absolute left-0 top-0 overflow-hidden'
-        style={{ width: `${progress}%` }}
+        className='h-0.5 absolute left-0 top-0 overflow-hidden'
+        style={{
+          width: `${progress}%`,
+          background: isComplete
+            ? 'linear-gradient(to right, transparent, #6d55ff 50%, transparent)'
+            : 'linear-gradient(to right, transparent, #6d55ff)',
+        }}
         initial={{ width: 0 }}
         animate={{ width: `${progress}%` }}
         transition={{ duration: 0.5 }}
