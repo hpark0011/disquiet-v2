@@ -10,6 +10,9 @@ import TwitterLikeEditor from '@/components/TwitterLikeEditor';
 import { useQuiz } from '@/hooks/useQuiz';
 import QuizCreator from '@/components/quiz/QuizCreator';
 import QuizList from '@/components/quiz/QuizList';
+import PollCreator from '@/components/poll/PollCreator';
+import PollList from '@/components/poll/PollList';
+import { usePoll } from '@/hooks/usePoll';
 
 const MainFeed: React.FC = () => {
   const {
@@ -20,6 +23,8 @@ const MainFeed: React.FC = () => {
     handleCloseGame,
   } = useQuiz();
   const [showPMGame, setShowPMGame] = useState(false);
+
+  const { polls, createPoll, votePoll } = usePoll();
 
   const handleStartPMGame = () => {
     handleStartQuiz(mockPMGame);
@@ -82,6 +87,9 @@ const MainFeed: React.FC = () => {
           )}
         </AnimatePresence>
       </motion.section>
+
+      <PollCreator onCreatePoll={createPoll} />
+      <PollList polls={polls} onVote={votePoll} />
 
       <QuizCreator onCreateQuiz={handleCreateQuiz} />
       <QuizList quizzes={quizzes} onStartQuiz={handleStartQuiz} />

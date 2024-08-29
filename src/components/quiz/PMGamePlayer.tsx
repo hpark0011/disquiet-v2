@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { Quiz, Scenario, Impact } from '@/types/quiz';
+import React, { useState, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
-import { motion } from 'framer-motion';
+import { formatPercentage } from '@/utils/formatters';
+import SectionHeader from '@/components/SectionHeader';
+import MetricCard from '@/components/MetricCard';
+import ProgressBar from '@/components/ProgressBar';
+import Button from '@/components/Button';
+import Icon from '@/components/Icon'; // Add this line
 
 interface PMGamePlayerProps {
   quiz: Quiz;
@@ -23,107 +29,110 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   });
   const [gameComplete, setGameComplete] = useState(false);
 
-  const handleSelectOption = (optionIndex: number) => {
-    const option = scenarios[currentScenario].options[optionIndex];
-    setTotalOutcomes((prev) => ({
-      userGrowth: prev.userGrowth + option.outcomes.userGrowth,
-      revenueGrowth: prev.revenueGrowth + option.outcomes.revenueGrowth,
-      userRetention: prev.userRetention + option.outcomes.userRetention,
-      signUpConversion:
-        prev.signUpConversion + option.outcomes.signUpConversion,
-    }));
+  const progress = useMemo(
+    () => ((currentScenario + 1) / scenarios.length) * 100,
+    [currentScenario, scenarios.length]
+  );
 
-    if (currentScenario + 1 < scenarios.length) {
-      setCurrentScenario((prev) => prev + 1);
-    } else {
-      setGameComplete(true);
-    }
+  const handleSelectOption = useCallback(
+    (option: Option) => {
+      setTotalOutcomes((prev) => ({
+        userGrowth: prev.userGrowth + option.outcomes.userGrowth,
+        revenueGrowth: prev.revenueGrowth + option.outcomes.revenueGrowth,
+        userRetention: prev.userRetention + option.outcomes.userRetention,
+        signUpConversion:
+          prev.signUpConversion + option.outcomes.signUpConversion,
+      }));
+
+      if (currentScenario + 1 < scenarios.length) {
+        setCurrentScenario((prev) => prev + 1);
+      } else {
+        setGameComplete(true);
+      }
+    },
+    [currentScenario, scenarios.length]
+  );
+
+  const renderGameContent = () => (
+    <>
+      <p className='mb-6 text-lg'>{scenarios[currentScenario].scenario}</p>
+      <div className='mb-6'>
+        <SectionHeader icon='questionmark.circle' label='What would you do?' />
+        <div className='space-y-3'>
+          {scenarios[currentScenario].options.map((option, index) => (
+            <Button
+              key={index}
+              onClick={() => handleSelectOption(option)}
+              variant='option'
+              icon={option.emoji}
+            >
+              {option.text}
+            </Button>
+          ))}
+        </div>
+      </div>
+      <div className='mt-8'>
+        <SectionHeader icon='chart.bar' label='Current Metrics' />
+        <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
+          {Object.entries(totalOutcomes).map(([key, value]) => (
+            <MetricCard
+              key={key}
+              label={key}
+              count={value}
+              growth={value / (currentScenario + 1)}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
+  const renderGameComplete = () => {
+    const { performancePercentage, skillLevel } = calculatePerformance(
+      totalOutcomes,
+      scenarios.length
+    );
+    return (
+      <div>
+        <h3 className='text-lg font-semibold mb-2'>Game Complete!</h3>
+        <p className='mb-2'>Your Performance: {performancePercentage}%</p>
+        <p className='mb-4'>Skill Level: {skillLevel}</p>
+        <h4 className='font-semibold mb-2'>Overall Impact:</h4>
+        <div className='grid grid-cols-2 gap-2'>
+          {Object.entries(totalOutcomes).map(([key, value]) => (
+            <div key={key} className='p-2 bg-gray-100 rounded'>
+              {key}: {value}
+            </div>
+          ))}
+        </div>
+        <Button onClick={onClose} variant='primary' className='mt-4'>
+          Close Game
+        </Button>
+      </div>
+    );
   };
 
-  const progress = ((currentScenario + 1) / scenarios.length) * 100;
-
   return (
-    <div className='bg-transparent'>
-      <div className='mb-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent h-0.5 relative overflow-hidden rounded-full'>
-        <motion.div
-          className='bg-gradient-to-r from-transparent via-[#6d55ff] to-transparent h-0.5 absolute left-0 top-0 overflow-hidden rounded-full'
-          style={{ width: `${progress}%` }}
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5 }}
-        >
+    <div className='bg-white rounded-lg shadow-lg'>
+      <ProgressBar progress={progress} />
+      <div className='p-6'>
+        <SectionHeader
+          icon='circle.grid.cross.fill'
+          label={`시나리오 ${currentScenario + 1}/${scenarios.length}`}
+        />
+        <h2 className='text-2xl font-bold mb-4'>{quiz.title}</h2>
+        <AnimatePresence mode='wait'>
           <motion.div
-            className='absolute inset-0 bg-gradient-to-r from-transparent via-blue-100 to-transparent'
-            initial={{ x: '-100%' }}
-            animate={{ x: '100%' }}
-            transition={{
-              repeat: Infinity,
-              duration: 1.5,
-              ease: 'linear',
-            }}
-            style={{ width: '100%' }}
-          />
-        </motion.div>
-      </div>
-      <h2 className='text-xl font-semibold mb-4'>{quiz.title}</h2>
-
-      {!gameComplete ? (
-        <>
-          <h3 className='text-base font-semibold mb-2'>
-            Scenario {currentScenario + 1} of {scenarios.length}:
-          </h3>
-          <p className='mb-6'>{scenarios[currentScenario].scenario}</p>
-          <div className='grid grid-cols-2 gap-1'>
-            {scenarios[currentScenario].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleSelectOption(index)}
-                className='text-left p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition duration-200 flex flex-col items-center justify-center h-fit'
-              >
-                <span className='text-3xl mb-4'>{option.emoji}</span>
-                <span className='text-sm text-center'>{option.text}</span>
-              </button>
-            ))}
-          </div>
-        </>
-      ) : (
-        <div>
-          <h3 className='text-lg font-semibold mb-2'>Game Complete!</h3>
-          <p className='mb-2'>
-            Your Performance:{' '}
-            {
-              calculatePerformance(totalOutcomes, scenarios.length)
-                .performancePercentage
-            }
-            %
-          </p>
-          <p className='mb-4'>
-            Skill Level:{' '}
-            {calculatePerformance(totalOutcomes, scenarios.length).skillLevel}
-          </p>
-          <h4 className='font-semibold mb-2'>Overall Impact:</h4>
-          <div className='grid grid-cols-2 gap-2'>
-            <div className='p-2 bg-gray-100 rounded'>
-              User Growth: {totalOutcomes.userGrowth}
-            </div>
-            <div className='p-2 bg-gray-100 rounded'>
-              Revenue Growth: {totalOutcomes.revenueGrowth}
-            </div>
-            <div className='p-2 bg-gray-100 rounded'>
-              User Retention: {totalOutcomes.userRetention}
-            </div>
-            <div className='p-2 bg-gray-100 rounded'>
-              Sign-up Conversion: {totalOutcomes.signUpConversion}
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className='mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-200'
+            key={currentScenario}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
-            Close Game
-          </button>
-        </div>
-      )}
+            {!gameComplete ? renderGameContent() : renderGameComplete()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
