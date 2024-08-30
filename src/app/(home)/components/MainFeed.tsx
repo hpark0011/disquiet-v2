@@ -11,9 +11,6 @@ import TwitterLikeEditor from '@/components/TwitterLikeEditor';
 import { useQuiz } from '@/hooks/useQuiz';
 import QuizCreator from '@/components/quiz/QuizCreator';
 import QuizList from '@/components/quiz/QuizList';
-import PollCreator from '@/components/poll/PollCreator';
-import PollList from '@/components/poll/PollList';
-import { usePoll } from '@/hooks/usePoll';
 import Icon from '@/components/Icon';
 import Image from 'next/image';
 
@@ -26,8 +23,6 @@ const MainFeed: React.FC = () => {
     useQuiz();
   const [showPMGame, setShowPMGame] = useState(false);
   const [participantCount, setParticipantCount] = useState(0);
-
-  const { polls, createPoll, votePoll } = usePoll();
 
   useEffect(() => {
     // Simulating fetching the participant count from an API
@@ -159,8 +154,6 @@ const MainFeed: React.FC = () => {
           </div>
         </motion.section>
       </div>
-      <PollCreator onCreatePoll={createPoll} />
-      <PollList polls={polls} onVote={votePoll} />
       <QuizCreator onCreateQuiz={handleCreateQuiz} />
       <QuizList quizzes={quizzes} onStartQuiz={handleStartQuiz} />
     </div>
