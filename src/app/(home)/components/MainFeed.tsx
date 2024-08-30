@@ -86,9 +86,23 @@ const MainFeed: React.FC = () => {
                 transition={{ duration: 0.2 }}
               >
                 <div className='flex flex-col items-center space-y-6 h-[400px] justify-center px-6'>
-                  <div className='flex flex-col items-center space-y-2 justify-center'>
-                    <h2 className='text-2xl font-semibold'>PM Scenario Game</h2>
-                    <p className='text-gray-600 text-center'>
+                  <div className='flex flex-col items-center space-y-4 justify-center'>
+                    <div className='flex flex-col items-center space-y-4 justify-center'>
+                      <Image
+                        src='/sendbird.png'
+                        alt='Sendbird'
+                        width={80}
+                        height={80}
+                        className='mx-auto border border-gray-100 rounded-2xl shadow-xl'
+                      />
+                      <div className='text-xs font-medium text-[#742DDD] '>
+                        Sponsored by Sendbird
+                      </div>
+                    </div>
+                    <h2 className='text-2xl font-semibold'>
+                      PO 레벨 테스트하기
+                    </h2>
+                    <p className='text-gray-500 text-sm text-center max-w-[400px] break-keep'>
                       {mockPMGame.description}
                     </p>
                   </div>
