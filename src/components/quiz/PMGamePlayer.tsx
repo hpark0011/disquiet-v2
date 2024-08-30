@@ -91,16 +91,19 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     </>
   );
 
-  const renderMetricCards = () => (
+  const renderMetricCards = (isGameComplete: boolean) => (
     <div className='mt-4'>
-      <SectionHeader icon='chart.bar.fill' label='현재 지표' />
+      <SectionHeader
+        icon='chart.bar.fill'
+        label={isGameComplete ? '최종 지표' : '현재 지표'}
+      />
       <div className='grid grid-cols-2 gap-2 sm:grid-cols-4'>
         {Object.entries(totalOutcomes).map(([key, value]) => (
           <MetricCard
             key={key}
             label={metricLabels[key as keyof typeof metricLabels]}
             count={value}
-            growth={value / (currentScenario + 1)}
+            growth={value / scenarios.length}
             highlight={
               selectedOption !== null &&
               selectedOption.outcomes[key as keyof Impact] !== 0
@@ -121,14 +124,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
         <h3 className='text-lg font-semibold mb-2'>게임 완료!</h3>
         <p className='mb-2'>당신의 성과: {performancePercentage}%</p>
         <p className='mb-4'>스킬 레벨: {skillLevel}</p>
-        <h4 className='font-semibold mb-2'>전체 영향:</h4>
-        <div className='grid grid-cols-2 gap-2'>
-          {Object.entries(totalOutcomes).map(([key, value]) => (
-            <div key={key} className='p-2 bg-gray-100 rounded'>
-              {metricLabels[key as keyof typeof metricLabels]}: {value}
-            </div>
-          ))}
-        </div>
+        {renderMetricCards(true)}
         <Button onClick={onClose} variant='primary' className='mt-4'>
           게임 종료
         </Button>
@@ -142,7 +138,11 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
       <div className='pt-[12px]'>
         <SectionHeader
           icon='circle.grid.cross.fill'
-          label={`시나리오 ${currentScenario + 1}/${scenarios.length}`}
+          label={
+            gameComplete
+              ? '결과'
+              : `시나리오 ${currentScenario + 1}/${scenarios.length}`
+          }
         />
         <AnimatePresence mode='wait'>
           <motion.div
@@ -155,7 +155,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
             {!gameComplete ? renderGameContent() : renderGameComplete()}
           </motion.div>
         </AnimatePresence>
-        {!gameComplete && renderMetricCards()}
+        {!gameComplete && renderMetricCards(false)}
       </div>
     </div>
   );

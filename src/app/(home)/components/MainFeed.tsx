@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { scenarios, mockPMGame } from '@/data/pmGameData';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 import PMGamePlayer from '@/components/quiz/PMGamePlayer';
 import TwitterLikeEditor from '@/components/TwitterLikeEditor';
@@ -16,16 +17,40 @@ import { usePoll } from '@/hooks/usePoll';
 import Icon from '@/components/Icon';
 import Image from 'next/image';
 
+interface ParticipantCountResponse {
+  count: number;
+}
+
 const MainFeed: React.FC = () => {
   const { quizzes, handleCreateQuiz, handleStartQuiz, handleCloseGame } =
     useQuiz();
   const [showPMGame, setShowPMGame] = useState(false);
+  const [participantCount, setParticipantCount] = useState(0);
 
   const { polls, createPoll, votePoll } = usePoll();
+
+  useEffect(() => {
+    // Simulating fetching the participant count from an API
+    const fetchParticipantCount = async () => {
+      try {
+        // Replace this with actual API call in production
+        const response = await new Promise<ParticipantCountResponse>(
+          (resolve) => setTimeout(() => resolve({ count: 132 }), 1000)
+        );
+        setParticipantCount(response.count);
+      } catch (error) {
+        console.error('Error fetching participant count:', error);
+        // Handle the error appropriately
+      }
+    };
+
+    fetchParticipantCount();
+  }, []);
 
   const handleStartPMGame = () => {
     handleStartQuiz(mockPMGame);
     setShowPMGame(true);
+    setParticipantCount((prevCount) => prevCount + 1);
   };
 
   const handleClosePMGame = () => {
@@ -88,11 +113,16 @@ const MainFeed: React.FC = () => {
           <div className='mt-4 h-10 border-t border-gray-100 px-4 text-xs text-gray-500 leading-none flex gap-1 items-center'>
             <div className='flex items-center gap-1 flex-grow'>
               <Icon name='person.2.fill' className='w-4 h-4 ' />
-              132명 참여
+              {participantCount}명 참여
             </div>
             <div className='flex items-center gap-1'>
-              <span> Sponsored by</span>
-              <div className='flex items-center gap-1'>
+              <span>Sponsored by</span>
+              <Link
+                href='https://sendbird.com'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-1 hover:underline'
+              >
                 <Image
                   src='/sendbird.png'
                   alt='sendbird'
@@ -101,7 +131,7 @@ const MainFeed: React.FC = () => {
                   className='border border-solid border-gray-100 rounded-md'
                 />
                 Sendbird
-              </div>
+              </Link>
             </div>
           </div>
         </motion.section>
