@@ -15,12 +15,14 @@ interface PMGamePlayerProps {
   quiz: Quiz;
   scenarios: Scenario[];
   onClose: () => void;
+  onReplay: () => void; // Add this new prop
 }
 
 const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
   quiz,
   scenarios,
   onClose,
+  onReplay, // Add this new prop
 }) => {
   const [currentScenario, setCurrentScenario] = useState(0);
   const [totalOutcomes, setTotalOutcomes] = useState<Impact>({
@@ -117,6 +119,19 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
     </div>
   );
 
+  const handleReplay = () => {
+    setCurrentScenario(0);
+    setTotalOutcomes({
+      userGrowth: 0,
+      revenueGrowth: 0,
+      userRetention: 0,
+      signUpConversion: 0,
+    });
+    setGameComplete(false);
+    setSelectedOption(null);
+    onReplay(); // This will now be called when the replay button is clicked
+  };
+
   const renderGameComplete = () => {
     const { performancePercentage, skillLevel } = calculatePerformance(
       totalOutcomes,
@@ -135,7 +150,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
 
     return (
       <div className='space-y-12'>
-        <div className='space-y-4 text-center'>
+        <div className='space-y-4 text-center flex-col flex items-center'>
           <div>
             <p className='text-lg font-medium'>성공적으로 PMF를 찾았습니다!</p>
             <p className='text-lg font-medium'>
@@ -146,6 +161,16 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
           <Button onClick={handleShareClick} variant='primary' size='sm'>
             나의 PM 레벨 공유하기
           </Button>
+          <button
+            onClick={handleReplay}
+            className='flex items-center text-xs justify-center text-gray-500 hover:text-[#6d55ff] transition-colors group'
+          >
+            <Icon
+              name='arrow.clockwise'
+              className='mr-[2px] group-hover:filter group-hover:invert-[39%] group-hover:sepia-[93%] group-hover:saturate-[1132%] group-hover:hue-rotate-[218deg] group-hover:brightness-[93%] group-hover:contrast-[91%] transition-all w-[18px] h-[18px]'
+            />
+            <span>다시하기</span>
+          </button>
         </div>
         <div className='space-y-4 text-center'>
           <p className='text-lg font-medium'>

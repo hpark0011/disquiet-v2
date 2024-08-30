@@ -58,6 +58,14 @@ const MainFeed: React.FC = () => {
     setShowPMGame(false);
   };
 
+  const handleReplayPMGame = () => {
+    setShowPMGame(false);
+    // Reset any other necessary state here
+    setTimeout(() => {
+      setShowPMGame(true);
+    }, 100); // A short delay to ensure the component fully unmounts and remounts
+  };
+
   return (
     <div className='max-w-4xl mx-auto p-4 space-y-8'>
       <TwitterLikeEditor />
@@ -106,6 +114,7 @@ const MainFeed: React.FC = () => {
                   quiz={mockPMGame}
                   scenarios={scenarios}
                   onClose={handleClosePMGame}
+                  onReplay={handleReplayPMGame}
                 />
               </motion.div>
             )}
