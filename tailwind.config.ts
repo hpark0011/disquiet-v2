@@ -83,6 +83,9 @@ const config = {
         'secondary-button-hover':
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(0, 0, 0, 0.1)',
         'quiz-card': '0px 8px 20px -4px rgba(0, 0, 0, 0.15)',
+        'branded-button-hover':
+          // customize rgba value
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(116, 45, 221, 0.4)',
       },
     },
   },

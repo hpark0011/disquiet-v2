@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const OptionButton: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
   icon,
@@ -31,4 +31,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default OptionButton;
