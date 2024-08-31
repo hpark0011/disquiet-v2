@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Quiz } from '@/types/quiz';
 import { Button } from '../ui/button';
@@ -13,7 +14,6 @@ const QuizCreator: React.FC<QuizCreatorProps> = ({ onCreateQuiz }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newQuiz: Quiz = {
-      title,
       description,
       questions: [],
     };

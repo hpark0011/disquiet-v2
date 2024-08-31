@@ -1,7 +1,9 @@
+'use client';
+
 import { useState, useCallback } from 'react';
 import { Quiz } from '@/types/quiz';
 
-export const useQuiz = () => {
+export function useQuiz() {
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
   const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
   const [showMockGame, setShowMockGame] = useState(false);
@@ -28,4 +30,4 @@ export const useQuiz = () => {
     handleStartQuiz,
     handleCloseGame,
   };
-};
+}
