@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('@/styles/primitives.css');
+@import url('@/styles/semantic.css');
+@import url('@/styles/components.css');
+
 @layer base {
   :root {
     --background: 0 0% 100%;

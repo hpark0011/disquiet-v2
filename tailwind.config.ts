@@ -87,6 +87,9 @@ const config = {
           // customize rgba value
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(116, 45, 221, 0.4)',
       },
+      textColor: {
+        primary: 'var(--color-text-accent)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

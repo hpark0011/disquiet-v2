@@ -12,7 +12,7 @@ const QuizList: React.FC<QuizListProps> = ({ quizzes, onStartQuiz }) => {
       <h2>Available Quizzes</h2>
       {quizzes.map((quiz) => (
         <div key={quiz.id}>
-          <h3>{quiz.title}</h3>
+          {/* <h3>{quiz.title}</h3> */}
           <p>{quiz.description}</p>
           <button onClick={() => onStartQuiz(quiz)}>Start Quiz</button>
         </div>
