@@ -3,10 +3,13 @@
   --color-background-primary: var(--color-dq-gray-50);
   --color-background-secondary: var(--color-white);
   --color-background-tertiary: var(--color-dq-gray-100);
+  /* Text Colors */
   --color-text-primary: var(--color-dq-gray-900);
   --color-text-secondary: var(--color-dq-gray-600);
   --color-text-tertiary: var(--color-dq-gray-500);
+  --color-text-muted: var(--color-dq-gray-400);
   --color-text-accent: var(--color-dq-brand);
+  /* Action Colors */
   --color-action-primary: #3b82f6; /* Assuming blue-500 from Tailwind */
   --color-action-secondary: var(--color-dq-gray-200);
   --color-action-hover: #2563eb; /* Assuming blue-600 from Tailwind */

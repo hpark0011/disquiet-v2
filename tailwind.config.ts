@@ -53,6 +53,7 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
         'home-feed-bg': '#f5f5f7',
+        divider: '#EEEEF0',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -88,7 +89,11 @@ const config = {
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(116, 45, 221, 0.4)',
       },
       textColor: {
-        primary: 'var(--color-text-accent)',
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+        tertiary: 'var(--color-text-tertiary)',
+        muted: 'var(--color-text-muted)',
+        accent: 'var(--color-text-accent)',
       },
     },
   },
