@@ -43,7 +43,9 @@
   --icon-color-interactive: var(--color-action-primary);
 
   /* Borders */
-  --border-color-default: var(--color-dq-gray-200);
+  --border-color-primary: var(--color-dq-gray-50);
+  --border-color-secondary: var(--color-dq-gray-100);
+  --border-color-tertiary: var(--color-dq-gray-200);
   --border-color-focus: var(--color-action-primary);
   --border-color-error: var(--color-status-error);
   --border-width-default: var(--border-width-1);

@@ -160,4 +160,9 @@
   --table-row-bg: var(--color-background-secondary);
   --table-row-color: var(--color-text-primary);
   --table-border-color: var(--border-color-default);
+
+  /* Divider */
+  --divider-color-primary: var(--color-border-primary);
+  --divider-color-secondary: var(--color-border-secondary);
+  --divider-color-tertiary: var(--color-border-tertiary);
 }

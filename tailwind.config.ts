@@ -94,6 +94,9 @@ const config = {
         tertiary: 'var(--color-text-tertiary)',
         muted: 'var(--color-text-muted)',
         accent: 'var(--color-text-accent)',
+        backgroundColor: {
+          'divider-primary': 'var(--color-border-default)',
+        },
       },
     },
   },
