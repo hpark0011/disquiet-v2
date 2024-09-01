@@ -9,6 +9,7 @@
   --color-text-tertiary: var(--color-dq-gray-500);
   --color-text-muted: var(--color-dq-gray-400);
   --color-text-accent: var(--color-dq-brand);
+  --color-text-link: var(--color-dq-blue-500);
   /* Action Colors */
   --color-action-primary: #3b82f6; /* Assuming blue-500 from Tailwind */
   --color-action-secondary: var(--color-dq-gray-200);

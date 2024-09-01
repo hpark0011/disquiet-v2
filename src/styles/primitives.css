@@ -13,6 +13,17 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-dq-brand: #6d55ff;
+  --color-dq-blue-50: #eff6ff;
+  --color-dq-blue-100: #dbeafe;
+  --color-dq-blue-200: #bfdbfe;
+  --color-dq-blue-300: #93c5fd;
+  --color-dq-blue-400: #60a5fa;
+  --color-dq-blue-500: #3b82f6;
+  --color-dq-blue-600: #2563eb;
+  --color-dq-blue-700: #1d4ed8;
+  --color-dq-blue-800: #1e40af;
+  --color-dq-blue-900: #1e3a8a;
+  --color-dq-blue-950: #172554;
 
   /* Spacing */
   --spacing-0: 0;

@@ -53,7 +53,6 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
         'home-feed-bg': '#f5f5f7',
-        divider: '#EEEEF0',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -94,6 +93,7 @@ const config = {
         tertiary: 'var(--color-text-tertiary)',
         muted: 'var(--color-text-muted)',
         accent: 'var(--color-text-accent)',
+        link: 'var(--color-text-link)',
       },
       backgroundColor: {
         'divider-primary': 'var(--border-color-primary)',
