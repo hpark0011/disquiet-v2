@@ -30,7 +30,9 @@ export const SortOptions: React.FC<SortOptionsProps> = React.memo(
         <TabsList className='bg-[#EEEEF0] h-fit rounded-lg'>
           {sortOptions.map((sort, index) => (
             <React.Fragment key={sort.value}>
-              {index > 0 && <div className='w-px h-3 bg-gray-300 mx-0.5' />}
+              {index > 0 && (
+                <div className='w-px h-3 bg-divider-secondary mx-0.5' />
+              )}
               <TabsTrigger
                 className='h-7 rounded-[6px] px-2'
                 value={sort.value}

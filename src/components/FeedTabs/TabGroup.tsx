@@ -30,7 +30,9 @@ export const TabGroup: React.FC<TabGroupProps> = React.memo(
       <TabsList className='bg-[#EEEEF0] h-fit rounded-lg'>
         {tabOptions.map((tab, index) => (
           <React.Fragment key={tab.value}>
-            {index > 0 && <div className='w-px h-3 bg-gray-300 mx-0.5' />}
+            {index > 0 && (
+              <div className='w-px h-3 bg-divider-secondary mx-0.5' />
+            )}
             <TabsTrigger
               className='h-7 rounded-[6px] text-muted'
               value={tab.value}
