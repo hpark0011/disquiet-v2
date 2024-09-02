@@ -1,6 +1,6 @@
 import React from 'react';
-import MainFeed from '@/components/MainFeed';
 import FeedTabs from '@/components/FeedTabs';
+import MainFeed from './components/MainFeed';
 
 export default function HomePage() {
   return (
