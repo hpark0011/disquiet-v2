@@ -12,4 +12,5 @@ export interface Article {
   content: string;
   tags: string[];
   featuredImage: string | StaticImageData;
+  isPremium: boolean;
 }

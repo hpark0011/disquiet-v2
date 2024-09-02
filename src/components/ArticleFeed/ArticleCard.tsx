@@ -52,7 +52,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
         <Image
           src={article.featuredImage}
           alt='Featured image'
-          className='rounded-lg border border-primary object-cover w-full h-full'
+          className='rounded-xl border border-primary object-cover w-full h-full'
           width={160}
           height={120}
         />

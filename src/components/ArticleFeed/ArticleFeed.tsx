@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Article } from '@/types/article';
 import { dummyArticles } from '@/data/dummyArticles';
 import ArticleCard from './ArticleCard';
+import PremiumArticleCard from './PremiumArticleCard';
 
 const ArticleFeed: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>(dummyArticles);
@@ -15,12 +16,16 @@ const ArticleFeed: React.FC = () => {
   };
 
   return (
-    <div className='max-w-3xl mx-auto py-8 flex flex-col items-center'>
+    <div className='max-w-[640px] mx-auto py-8 flex flex-col items-center'>
       {articles.map((article, index) => (
         <React.Fragment key={article.id}>
-          <ArticleCard article={article} />
+          {article.isPremium ? (
+            <PremiumArticleCard article={article} />
+          ) : (
+            <ArticleCard article={article} />
+          )}
           {index < articles.length - 1 && (
-            <div className='my-4 h-[1px] w-full bg-divider-secondary max-w-[640px]' />
+            <div className='my-2 h-[1px] w-full bg-divider-secondary max-w-[640px]' />
           )}
         </React.Fragment>
       ))}
