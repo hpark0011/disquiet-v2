@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
-import { TabGroup, TabValue } from './TabGroup';
+import TabGroup, { TabValue } from './TabGroup';
 import { SortOptions, SortValue } from './SortOptions';
 import { NewPostButton } from './NewPostButton';
 
@@ -23,7 +23,7 @@ const FeedTabs: React.FC = () => {
   }, []);
 
   return (
-    <div className='max-w-[680px] mx-auto p-4'>
+    <div className='max-w-[680px] mx-auto'>
       <div className='flex items-center justify-between p-1 border border-gray-200 rounded-xl'>
         <TabGroup activeTab={activeTab} onTabChange={handleTabChange} />
         <div className='flex items-center space-x-2'>

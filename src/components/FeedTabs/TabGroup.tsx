@@ -35,7 +35,7 @@ const TabItem: React.FC<{ tab: TabOption; isLast: boolean }> = React.memo(
 
 TabItem.displayName = 'TabItem';
 
-export const TabGroup: React.FC<TabGroupProps> = React.memo(
+const TabGroup: React.FC<TabGroupProps> = React.memo(
   ({ activeTab, onTabChange }) => {
     const router = useRouter();
 
@@ -70,3 +70,5 @@ export const TabGroup: React.FC<TabGroupProps> = React.memo(
 );
 
 TabGroup.displayName = 'TabGroup';
+
+export default TabGroup;

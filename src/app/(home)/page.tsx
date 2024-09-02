@@ -1,12 +1,12 @@
 import React from 'react';
-import MainFeed from './components/MainFeed';
+import MainFeed from '@/components/MainFeed';
+import FeedTabs from '@/components/FeedTabs';
 
-const DisquietPage = () => {
+export default function HomePage() {
   return (
-    <div className='flex-grow max-w-[680px] mx-auto'>
+    <div className='max-w-[680px] mx-auto p-4 space-y-8'>
+      <FeedTabs />
       <MainFeed />
     </div>
   );
-};
-
-export default DisquietPage;
+}

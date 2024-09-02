@@ -1,22 +1,12 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Article } from '@/types/article';
+import { dummyArticles } from '@/data/dummyArticles';
 
-interface Article {
-  id: string;
-  author: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
-  timestamp: string;
-  title: string;
-  content: string;
-  tags: string[];
-  featuredImage: string;
-}
-
-const ArticlePreview: React.FC<{ article: Article }> = ({ article }) => (
+const ArticleCard: React.FC<{ article: Article }> = ({ article }) => (
   <div className='border border-gray-200 rounded-lg p-6 mb-6 hover:shadow-md transition-shadow'>
     <div className='flex items-center mb-4'>
       <Image
@@ -57,47 +47,20 @@ const ArticlePreview: React.FC<{ article: Article }> = ({ article }) => (
 );
 
 const ArticleFeed: React.FC = () => {
-  const [articles, setArticles] = React.useState<Article[]>([]);
-  const [loading, setLoading] = React.useState(true);
+  const [articles, setArticles] = useState<Article[]>(dummyArticles);
 
-  React.useEffect(() => {
-    // Simulating API call to fetch articles
-    setTimeout(() => {
-      setArticles([
-        {
-          id: '1',
-          author: {
-            name: 'John Doe',
-            role: 'Maker@Disquiet',
-            avatar: '/avatars/john-doe.jpg',
-          },
-          timestamp: '2시간 전',
-          title: '디자인 시스템의 중요성',
-          content:
-            '디자인 시스템은 제품의 일관성을 유지하고 개발 속도를 높이는 데 중요한 역할을 합니다...',
-          tags: ['디자인', '개발'],
-          featuredImage: '/images/design-system.jpg',
-        },
-        // Add more mock articles here
-      ]);
-      setLoading(false);
-    }, 1000);
-  }, []);
-
-  if (loading) {
-    return <div className='text-center py-10'>Loading articles...</div>;
-  }
+  const loadMoreArticles = () => {
+    // In a real application, this would fetch more articles from an API
+    console.log('Load more articles');
+  };
 
   return (
     <div className='max-w-3xl mx-auto py-8'>
       {articles.map((article) => (
-        <ArticlePreview key={article.id} article={article} />
+        <ArticleCard key={article.id} article={article} />
       ))}
       <div className='text-center mt-8'>
-        <Button
-          variant='outline'
-          onClick={() => console.log('Load more articles')}
-        >
+        <Button variant='outline' onClick={loadMoreArticles}>
           Load More
         </Button>
       </div>
