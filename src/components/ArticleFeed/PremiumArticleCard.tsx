@@ -10,8 +10,8 @@ interface PremiumArticleCardProps {
 }
 
 const PremiumArticleCard: React.FC<PremiumArticleCardProps> = ({ article }) => (
-  <div className='w-full pr-2 max-w-[640px]'>
-    <div className='relative flex flex-row mx-auto p-6 w-full h-[240px] rounded-2xl items-center bg-gradient-to-r from-gray-950 to-gray-500 text-white shadow-none hover:shadow-xl cursor-pointer transition-all duration-300 ease-in-out'>
+  <div className='group w-full pr-2 max-w-[640px]'>
+    <div className='relative flex flex-row mx-auto p-6 w-full h-[240px] rounded-2xl items-center bg-gradient-to-r from-gray-950 to-gray-500 text-white shadow-none hover:shadow-xl cursor-pointer animate-glimmer'>
       <div className='flex justify-center flex-col h-full w-full space-y-3'>
         <span className='absolute top-4 left-4 text-xs w-fit font-medium py-[6px] px-2 bg-[#ffffff15] rounded-lg'>
           Sponsored

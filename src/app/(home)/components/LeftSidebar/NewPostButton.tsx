@@ -27,14 +27,14 @@ const NewPostButton: React.FC<NewPostButtonProps> = React.memo(
     <DropdownMenu onOpenChange={onOpenChange}>
       <DropdownMenuTrigger asChild>
         <Button
-          className={`w-full justify-start transition-all duration-300 ease-in-out ${
-            expanded ? 'px-3' : 'px-2'
+          className={`w-[46px] h-[36px] flex flex-col items-center justify-center  transition-all duration-300 ease-in-out ${
+            expanded ? 'px-1' : 'px-1'
           }`}
-          variant='default'
+          variant='ghost'
         >
           <Icon
-            name='plus'
-            className='w-7 h-7 min-w-[28px] min-h-[28px] flex-shrink-0'
+            name='pencil.circle.fill'
+            className='w-full h-full min-w-[40px] min-h-[40px] flex-shrink-0'
           />
           <span
             className={`ml-3 whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out ${
