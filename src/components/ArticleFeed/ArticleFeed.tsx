@@ -15,9 +15,14 @@ const ArticleFeed: React.FC = () => {
   };
 
   return (
-    <div className='max-w-3xl mx-auto py-8'>
-      {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
+    <div className='max-w-3xl mx-auto py-8 flex flex-col items-center'>
+      {articles.map((article, index) => (
+        <React.Fragment key={article.id}>
+          <ArticleCard article={article} />
+          {index < articles.length - 1 && (
+            <div className='my-4 h-[1px] w-full bg-divider-secondary max-w-[640px]' />
+          )}
+        </React.Fragment>
       ))}
       <div className='text-center mt-8'>
         <Button variant='outline' onClick={loadMoreArticles}>
