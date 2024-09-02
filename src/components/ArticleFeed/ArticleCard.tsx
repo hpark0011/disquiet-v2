@@ -10,7 +10,7 @@ interface ArticleCardProps {
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
-  <div className='max-w-2xl flex flex-row mx-auto p-6 rounded-lg space-x-8 items-center'>
+  <div className='max-w-[680px] flex flex-row mx-auto p-4 rounded-2xl space-x-8 items-center bg-transparent border border-transparent shadow-none hover:bg-gray-50 hover:border hover:border-primary cursor-pointer hover:shadow-xl transition-all duration-300'>
     <div className='flex items justify-center flex-col'>
       <div className='flex items-center mb-2'>
         <Avatar className='w-6 h-6'>

@@ -16,7 +16,7 @@ const ArticleFeed: React.FC = () => {
   };
 
   return (
-    <div className='max-w-[640px] mx-auto py-8 flex flex-col items-center'>
+    <div className='max-w-[640px] mx-auto flex flex-col items-center space-y-4'>
       {articles.map((article, index) => (
         <React.Fragment key={article.id}>
           {article.isPremium ? (
