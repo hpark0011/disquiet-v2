@@ -12,33 +12,36 @@ interface ArticleCardProps {
 const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
   <div className='max-w-2xl flex flex-row mx-auto p-6 rounded-lg space-x-8 items-center'>
     <div className='flex items justify-center flex-col'>
-      <div className='flex items-center mb-4'>
-        <Avatar>
+      <div className='flex items-center mb-2'>
+        <Avatar className='w-6 h-6'>
           {/* @ts-ignore */}
-          <AvatarImage src={article.author.avatar} alt={article.author.name} />
-          <AvatarFallback>avatar</AvatarFallback>
+          {/* <AvatarImage src={article.author.avatar} alt={article.author.name} /> */}
+          <Image
+            src={article.author.avatar}
+            alt={article.author.name}
+            className='rounded-full w-full h-full object-cover'
+          />
+          {/* <AvatarFallback>avatar</AvatarFallback> */}
         </Avatar>
-        <div className='ml-2'>
-          <p className='text-base font-semibold text-black'>
+        <div className='ml-2 flex items-center space-x-2'>
+          <p className='text-sm font-semibold text-black'>
             {article.author.name}
           </p>
-          <p className='text-sm text-gray-500'>
-            {article.author.role} · {article.timestamp}
+          <p className='text-sm text-tertiary'>
+            {article.author.role}{' '}
+            <span className='text-divider-tertiary'>·</span> {article.timestamp}
           </p>
         </div>
       </div>
       <h2 className='text-base font-semibold text-black mb-2'>
         {article.title}
       </h2>
-      <p className='text-sm font-normal text-secondary mb-4 line-clamp-3'>
+      <p className='text-sm font-normal text-secondary mb-2 line-clamp-3'>
         {article.content}
       </p>
-      <div className='flex flex-wrap gap-2 mb-4'>
+      <div className='flex flex-wrap gap-2'>
         {article.tags.map((tag) => (
-          <span
-            key={tag}
-            className='bg-gray-100 text-gray-700 text-sm px-2 py-1 rounded'
-          >
+          <span key={tag} className='text-link text-sm rounded'>
             #{tag}
           </span>
         ))}
