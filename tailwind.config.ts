@@ -100,6 +100,11 @@ const config = {
         'divider-secondary': 'var(--border-color-secondary)',
         'divider-tertiary': 'var(--border-color-tertiary)',
       },
+      borderColor: {
+        primary: 'var(--border-color-primary)',
+        secondary: 'var(--border-color-secondary)',
+        tertiary: 'var(--border-color-tertiary)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

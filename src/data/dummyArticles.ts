@@ -1,5 +1,5 @@
 import { Article } from '@/types/article';
-import articleFeedImage from '@/mock_images/article/article-feed.jpg';
+import articleFeedImage from '@/mock_images/article/card-images/article-1.png';
 
 export const dummyArticles: Article[] = [
   {
