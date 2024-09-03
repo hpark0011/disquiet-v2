@@ -161,3 +161,167 @@
   --table-row-color: var(--color-text-primary);
   --table-border-color: var(--border-color-default);
 }
+
+.dark {
+  /* Button */
+  --button-primary-bg: var(--color-action-primary);
+  --button-primary-color: var(--color-black);
+  --button-primary-padding: var(--spacing-3) var(--spacing-5);
+  --button-primary-border-radius: var(--radius-full);
+  --button-primary-font-size: var(--font-size-base);
+  --button-primary-font-weight: var(--font-weight-semibold);
+  --button-primary-box-shadow: var(--shadow-md);
+
+  --button-secondary-bg: var(--color-action-secondary);
+  --button-secondary-color: var(--color-text-primary);
+  --button-secondary-padding: var(--spacing-3) var(--spacing-5);
+  --button-secondary-border-radius: var(--radius-full);
+  --button-secondary-font-size: var(--font-size-base);
+  --button-secondary-font-weight: var(--font-weight-semibold);
+
+  --button-text-color: var(--color-action-primary);
+  --button-text-font-size: var(--font-size-base);
+  --button-text-font-weight: var(--font-weight-semibold);
+
+  /* Input */
+  --input-bg: var(--color-background-secondary);
+  --input-color: var(--color-text-primary);
+  --input-padding: var(--spacing-4);
+  --input-font-size: var(--font-size-base);
+  --input-border-radius: var(--border-radius-default);
+  --input-border-color: var(--border-color-default);
+  --input-border-width: var(--border-width-default);
+  --input-focus-border-color: var(--border-color-focus);
+  --input-focus-box-shadow: 0 0 0 2px var(--color-action-primary) 33;
+
+  /* Card */
+  --card-bg: var(--color-background-secondary);
+  --card-border-radius: var(--radius-xl);
+  --card-padding: var(--spacing-content-padding);
+  --card-box-shadow: var(--shadow-lg);
+
+  /* Navigation */
+  --nav-bg: var(--color-background-primary);
+  --nav-color: var(--color-text-primary);
+  --nav-height: 44px;
+
+  /* Typography */
+  --typography-h1-font-size: var(--font-size-4xl);
+  --typography-h1-line-height: var(--line-height-tight);
+  --typography-h1-font-weight: var(--font-weight-bold);
+  --typography-h1-color: var(--color-text-primary);
+
+  --typography-h2-font-size: var(--font-size-3xl);
+  --typography-h2-line-height: var(--line-height-tight);
+  --typography-h2-font-weight: var(--font-weight-semibold);
+  --typography-h2-color: var(--color-text-primary);
+
+  --typography-h3-font-size: var(--font-size-2xl);
+  --typography-h3-line-height: var(--line-height-snug);
+  --typography-h3-font-weight: var(--font-weight-semibold);
+  --typography-h3-color: var(--color-text-primary);
+
+  --typography-body-font-size: var(--font-size-base);
+  --typography-body-line-height: var(--line-height-normal);
+  --typography-body-font-weight: var(--font-weight-regular);
+  --typography-body-color: var(--color-text-primary);
+
+  --typography-small-font-size: var(--font-size-sm);
+  --typography-small-line-height: var(--line-height-normal);
+  --typography-small-font-weight: var(--font-weight-regular);
+  --typography-small-color: var(--color-text-secondary);
+
+  /* Link */
+  --link-color: var(--color-action-primary);
+  --link-text-decoration: none;
+  --link-font-weight: var(--font-weight-medium);
+
+  /* Checkbox and Radio */
+  --checkbox-size: var(--icon-size-default);
+  --checkbox-border-color: var(--border-color-default);
+  --checkbox-border-width: var(--border-width-default);
+  --checkbox-border-radius: var(--radius-sm);
+  --checkbox-checked-bg: var(--color-action-primary);
+  --checkbox-checked-color: var(--color-white);
+
+  /* Switch */
+  --switch-width: 51px;
+  --switch-height: 31px;
+  --switch-thumb-size: 27px;
+  --switch-on-color: var(--color-action-primary);
+  --switch-off-color: var(--color-background-tertiary);
+
+  /* Alert */
+  --alert-info-bg: color-mix(
+    in srgb,
+    var(--color-status-info) 10%,
+    transparent
+  );
+  --alert-info-border-color: var(--color-status-info);
+  --alert-info-color: var(--color-text-primary);
+
+  --alert-success-bg: color-mix(
+    in srgb,
+    var(--color-status-success) 10%,
+    transparent
+  );
+  --alert-success-border-color: var(--color-status-success);
+  --alert-success-color: var(--color-text-primary);
+
+  --alert-warning-bg: color-mix(
+    in srgb,
+    var(--color-status-warning) 10%,
+    transparent
+  );
+  --alert-warning-border-color: var(--color-status-warning);
+  --alert-warning-color: var(--color-text-primary);
+
+  --alert-error-bg: color-mix(
+    in srgb,
+    var(--color-status-error) 10%,
+    transparent
+  );
+  --alert-error-border-color: var(--color-status-error);
+  --alert-error-color: var(--color-text-primary);
+
+  /* Tooltip */
+  --tooltip-bg: var(--color-background-secondary);
+  --tooltip-color: var(--color-text-primary);
+  --tooltip-padding: var(--spacing-2) var(--spacing-3);
+  --tooltip-border-radius: var(--radius-sm);
+  --tooltip-font-size: var(--font-size-sm);
+
+  /* Modal */
+  --modal-bg: var(--color-background-secondary);
+  --modal-border-radius: var(--radius-lg);
+  --modal-padding: var(--spacing-content-padding);
+  --modal-box-shadow: var(--shadow-lg);
+
+  /* Tag */
+  --tag-bg: var(--color-background-tertiary);
+  --tag-color: var(--color-text-secondary);
+  --tag-padding: var(--spacing-1) var(--spacing-2);
+  --tag-border-radius: var(--radius-full);
+  --tag-font-size: var(--font-size-sm);
+
+  /* Avatar */
+  --avatar-small-size: 32px;
+  --avatar-small-font-size: var(--font-size-sm);
+  --avatar-medium-size: 40px;
+  --avatar-medium-font-size: var(--font-size-base);
+  --avatar-large-size: 56px;
+  --avatar-large-font-size: var(--font-size-2xl);
+
+  /* Progress Bar */
+  --progress-bar-height: 6px;
+  --progress-bar-bg: var(--color-background-tertiary);
+  --progress-bar-fill-color: var(--color-action-primary);
+  --progress-bar-border-radius: var(--radius-full);
+
+  /* Table */
+  --table-header-bg: var(--color-background-tertiary);
+  --table-header-color: var(--color-text-secondary);
+  --table-row-bg: var(--color-background-secondary);
+  --table-row-color: var(--color-text-primary);
+  --table-border-color: var(--border-color-default);
+}

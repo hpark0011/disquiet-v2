@@ -109,6 +109,9 @@ const config = {
         secondary: 'var(--border-color-secondary)',
         tertiary: 'var(--border-color-tertiary)',
       },
+      fontSize: {
+        'post-meta': '13px',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

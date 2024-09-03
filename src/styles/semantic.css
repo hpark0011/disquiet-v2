@@ -52,3 +52,58 @@
   --border-width-default: var(--border-width-1);
   --border-radius-default: var(--radius-md);
 }
+
+.dark {
+  /* Semantic Colors */
+  --color-background-primary: var(--color-dq-gray-900);
+  --color-background-secondary: var(--color-dq-gray-800);
+  --color-background-tertiary: var(--color-dq-gray-700);
+  /* Text Colors */
+  --color-text-primary: var(--color-dq-gray-50);
+  --color-text-secondary: var(--color-dq-gray-300);
+  --color-text-tertiary: var(--color-dq-gray-400);
+  --color-text-muted: var(--color-dq-gray-500);
+  --color-text-accent: var(--color-dq-brand);
+  --color-text-link: var(--color-dq-blue-400);
+  /* Action Colors */
+  --color-action-primary: #2563eb; /* Assuming blue-600 from Tailwind */
+  --color-action-secondary: var(--color-dq-gray-600);
+  --color-action-hover: #3b82f6; /* Assuming blue-500 from Tailwind */
+  --color-action-disabled: var(--color-dq-gray-500);
+  --color-border-default: var(--color-dq-gray-600);
+  --color-border-focus: var(--color-action-primary);
+  --color-status-success: #16a34a; /* Assuming green-600 from Tailwind */
+  --color-status-error: #b91c1c; /* Assuming red-700 from Tailwind */
+  --color-status-warning: #d97706;
+  --color-status-info: var(--color-action-primary);
+
+  /* Typography */
+  --font-family-base: var(--font-family);
+  --font-size-body: var(--font-size-base);
+  --line-height-body: var(--line-height-normal);
+  --font-weight-body: var(--font-weight-regular);
+
+  /* Spacing */
+  --spacing-content-padding: var(--spacing-6);
+  --spacing-section: var(--spacing-12);
+  --spacing-stack: var(--spacing-4);
+
+  /* Shadows */
+  --shadow-default: var(--shadow-md);
+
+  /* Icons */
+  --icon-size-default: var(--icon-size-md);
+  --icon-color-primary: var(--color-dq-gray-50);
+  --icon-color-secondary: var(--color-dq-gray-300);
+  --icon-color-tertiary: var(--color-dq-gray-400);
+  --icon-color-interactive: var(--color-action-primary);
+
+  /* Borders */
+  --border-color-primary: var(--color-dq-gray-900);
+  --border-color-secondary: var(--color-dq-gray-800);
+  --border-color-tertiary: var(--color-dq-gray-700);
+  --border-color-focus: var(--color-action-primary);
+  --border-color-error: var(--color-status-error);
+  --border-width-default: var(--border-width-1);
+  --border-radius-default: var(--radius-md);
+}

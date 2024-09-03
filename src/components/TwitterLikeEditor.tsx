@@ -31,8 +31,7 @@ const TwitterLikeEditor: React.FC = () => {
         </a>
       </div>
       <div className='h-[1px] bg-divider-primary' />
-      <div className='flex items-start space-x-4 p-4'>
-        <Icon name='user' className='w-10 h-10 text-gray-400' />
+      <div className='flex items-start space-x-4 px-3 py-3'>
         <div className='flex-grow'>
           <EditorContent
             editor={editor}
@@ -40,23 +39,24 @@ const TwitterLikeEditor: React.FC = () => {
             placeholder='어떤 것을 만들고 있나요?'
           />
           <div className='flex justify-between items-center'>
-            <div className='flex space-x-2'>
+            <div className='flex space-x-2 pl-1'>
               <button className='text-blue-500'>
-                <Icon name='image' className='w-5 h-4' />
+                <Icon name='photo.fill' className='w-6 h-5' />
               </button>
               <button className='text-blue-500'>
-                <Icon name='poll' className='w-5 h-4' />
+                <Icon name='checklist' className='w-6 h-5' />
               </button>
-              <button className='text-blue-500'>
-                <Icon name='hashtag' className='w-5 h-4' />
+              <button className='text-primary flex items-center'>
+                <Icon name='number' className='w-6 h-5' />
+                <span className='text-xs'>태그 달기</span>
               </button>
             </div>
             <div className='flex space-x-2'>
-              <Button variant='secondary' size='sm'>
-                Settings
+              <Button variant='secondary' size='xs'>
+                관련 프로덕트
               </Button>
-              <Button variant='primary' size='sm' onClick={handlePost}>
-                Post
+              <Button variant='primary' size='xs' onClick={handlePost}>
+                로그 남기기
               </Button>
             </div>
           </div>
