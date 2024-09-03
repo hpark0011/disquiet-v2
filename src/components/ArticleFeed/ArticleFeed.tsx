@@ -30,9 +30,9 @@ const ArticleFeed: React.FC = () => {
         </React.Fragment>
       ))}
       <div className='text-center mt-8'>
-        <Button variant='outline' onClick={loadMoreArticles}>
+        {/* <Button variant='outline' onClick={loadMoreArticles}>
           Load More
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const TwitterLikeEditor: React.FC = () => {
                 <span className='text-xs'>태그 달기</span>
               </button>
             </div>
-            <div className='flex space-x-2'>
+            <div className='flex space-x-1'>
               <Button variant='secondary' size='xs'>
                 관련 프로덕트
               </Button>
