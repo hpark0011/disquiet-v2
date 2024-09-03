@@ -2,7 +2,6 @@ import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
 import { calculatePerformance } from '@/utils/quizHelpers';
-import { formatPercentage } from '@/utils/formatters';
 import SectionHeader from '@/components/quiz/SectionHeader';
 import MetricCard from '@/components/quiz/MetricCard';
 import ProgressBar from '@/components/quiz/ProgressBar';
@@ -177,7 +176,7 @@ const PMGamePlayer: React.FC<PMGamePlayerProps> = ({
             샌드버드를 도입해 CS를 자동화해보세요.
           </p>
           <Image
-            src='/sendbird.png'
+            src='/images/sendbird.png'
             alt='Sendbird'
             width={64}
             height={64}

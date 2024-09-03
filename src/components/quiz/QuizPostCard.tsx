@@ -77,7 +77,7 @@ const QuizPostCard = () => {
                 <div className='flex flex-col items-center space-y-4 justify-center'>
                   <div className='flex flex-col items-center space-y-4 justify-center'>
                     <Image
-                      src='/sendbird.png'
+                      src='/images/sendbird.png'
                       alt='Sendbird'
                       width={80}
                       height={80}
@@ -133,7 +133,7 @@ const QuizPostCard = () => {
               className='flex items-center gap-1 hover:underline'
             >
               <Image
-                src='/sendbird.png'
+                src='/images/sendbird.png'
                 alt='sendbird'
                 width={20}
                 height={20}

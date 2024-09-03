@@ -3,10 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { Article } from '@/types/article';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import PostCardHeader from '../PostCard/PostCardHeader';
-import LinkedProduct from './LinkedProduct'; // Import the new component
-import Tags from './Tags'; // Import the new Tags component
+import LinkedProduct from './LinkedProduct';
+import Tags from './Tags';
 
 interface ArticleCardProps {
   article: Article;
@@ -27,14 +26,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
       </p>
 
       {/* footer */}
-      <div className='flex flex-row items-center gap-2'>
+      <div className='flex flex-row items-center gap-3'>
         {article.linkedProduct && (
           <LinkedProduct
             logo={article.linkedProduct.logo}
             title={article.linkedProduct.title}
           />
         )}
-        <Tags tags={article.tags} /> {/* Use the new Tags component */}
+        <Tags tags={article.tags} />
       </div>
     </div>
     {article.featuredImage && (
