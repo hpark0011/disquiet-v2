@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Article } from '@/types/article';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import PostCardHeader from '../PostCard/PostCardHeader';
+import LinkedProduct from './LinkedProduct'; // Import the LinkedProduct component
+import Tags from './Tags'; // Import the Tags component
 
 interface PremiumArticleCardProps {
   article: Article;
@@ -18,35 +20,19 @@ const PremiumArticleCard: React.FC<PremiumArticleCardProps> = ({ article }) => (
           Sponsored
         </span>
         <PostCardHeader article={article} className='dark' />
-        {/* <div className='flex items-center'>
-          <Avatar className='w-6 h-6'>
-            <AvatarImage
-              // @ts-ignore
-              src={article.author.avatar}
-              alt={article.author.name}
-            />
-            <AvatarFallback>avatar</AvatarFallback>
-          </Avatar>
-          <div className='ml-2 flex items-center space-x-2'>
-            <p className='text-sm font-semibold'>{article.author.name}</p>
-            <p className='text-sm'>
-              {article.author.role}{' '}
-              <span className='text-divider-tertiary'>·</span>{' '}
-              {article.timestamp}
-            </p>
-          </div>
-        </div> */}
         <h2 className='text-xl font-semibold flex items-center'>
           {article.title}
         </h2>
-        {/* <p className='text-sm font-normal mb-2 line-clamp-3'>{article.content}</p> */}
         <div className='flex flex-row items-center gap-2 h-[16px] w-full'>
           <div className='flex flex-row items-center gap-2 w-full'>
-            {article.tags.map((tag) => (
-              <div key={tag} className='flex flex-row items-center'>
-                <span className='text-link text-sm rounded'>#{tag}</span>
-              </div>
-            ))}
+            {article.linkedProduct && (
+              <LinkedProduct
+                logo={article.linkedProduct.logo}
+                title={article.linkedProduct.title}
+                className='dark'
+              />
+            )}
+            <Tags tags={article.tags} /> {/* Use the Tags component */}
           </div>
         </div>
       </div>

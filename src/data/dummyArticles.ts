@@ -1,5 +1,6 @@
 import { Article } from '@/types/article';
 import articleFeedImage from '@/mock_images/article/card-images/article-1.png';
+import productLogo from '@public/images/disquiet-logo.png';
 
 export const dummyArticles: Article[] = [
   {
@@ -15,6 +16,10 @@ export const dummyArticles: Article[] = [
     tags: ['웹개발', '미래', '트렌드'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    linkedProduct: {
+      logo: productLogo,
+      title: 'Future Web Dev Tool',
+    },
   },
   {
     id: '2',
@@ -43,6 +48,10 @@ export const dummyArticles: Article[] = [
     tags: ['머신러닝', 'ai', '웹앱'],
     featuredImage: articleFeedImage,
     isPremium: true,
+    linkedProduct: {
+      logo: productLogo,
+      title: 'ML Web App Suite',
+    },
   },
   {
     id: '4',
@@ -71,6 +80,10 @@ export const dummyArticles: Article[] = [
     tags: ['Node.js', '서버', '백엔드'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    linkedProduct: {
+      logo: productLogo,
+      title: 'Node.js Server Kit',
+    },
   },
   {
     id: '6',

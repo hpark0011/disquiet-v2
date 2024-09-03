@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Article } from '@/types/article';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import PostCardHeader from '../PostCard/PostCardHeader';
+import LinkedProduct from './LinkedProduct'; // Import the new component
+import Tags from './Tags'; // Import the new Tags component
 
 interface ArticleCardProps {
   article: Article;
@@ -13,29 +15,26 @@ interface ArticleCardProps {
 const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
   <div className='max-w-[680px] flex flex-row mx-auto p-4 rounded-2xl space-x-4 items-center bg-[#f5f5f7] border-transparent shadow-none hover:bg-gray-50 cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out'>
     <div className='flex items justify-center flex-col'>
+      {/* header */}
       <PostCardHeader article={article} />
+
+      {/* body */}
       <h2 className='text-base font-semibold text-black mb-2'>
         {article.title}
       </h2>
       <p className='text-sm font-normal text-secondary mb-2 line-clamp-3'>
         {article.content}
       </p>
+
+      {/* footer */}
       <div className='flex flex-row items-center gap-2'>
-        <div className='flex text-post-header-meta flex-row items-center gap-[6px]'>
-          <Image
-            src={article.author.avatar}
-            alt={article.author.name}
-            className='w-6 h-6 rounded-lg'
+        {article.linkedProduct && (
+          <LinkedProduct
+            logo={article.linkedProduct.logo}
+            title={article.linkedProduct.title}
           />
-          <p className='text-post-meta text-primary font-medium'>디스콰이엇</p>
-        </div>
-        <div className='flex flex-wrap gap-2'>
-          {article.tags.map((tag) => (
-            <span key={tag} className='text-link text-post-meta rounded'>
-              #{tag}
-            </span>
-          ))}
-        </div>
+        )}
+        <Tags tags={article.tags} /> {/* Use the new Tags component */}
       </div>
     </div>
     {article.featuredImage && (

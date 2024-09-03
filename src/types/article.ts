@@ -13,4 +13,8 @@ export interface Article {
   tags: string[];
   featuredImage: string | StaticImageData;
   isPremium: boolean;
+  linkedProduct?: {
+    logo: string | StaticImageData;
+    title: string;
+  };
 }
