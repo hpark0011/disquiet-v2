@@ -1,7 +1,7 @@
 import React from 'react';
 import { Impact } from '@/types/quiz';
-import SectionHeader from '@/components/Quiz/SectionHeader';
-import MetricCard from '@/components/Quiz/MetricCard';
+import SectionHeader from '@/components/quiz/SectionHeader';
+import MetricCard from '@/components/quiz/MetricCard';
 
 interface CustomOption {
   outcomes: Impact;

@@ -2,7 +2,7 @@ import React from 'react';
 import RightBanners from './components/RightBanners';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar';
 import BackgroundColorSetter from './components/BackgroundColorSetter';
-import FeedTabs from '@/components/FeedTabs';
+import FeedTabs from '@/components/feed-tabs';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

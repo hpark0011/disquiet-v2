@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Article } from '@/types/article';
-import PostCardHeader from '../PostCard/PostCardHeader';
+import PostCardHeader from '../post-card/PostCardHeader';
 import LinkedProduct from './LinkedProduct';
 import Tags from './Tags';
 

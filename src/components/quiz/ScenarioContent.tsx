@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scenario, Option } from '@/types/quiz';
-import SectionHeader from '@/components/Quiz/SectionHeader';
-import OptionButton from './OptionButton';
+import SectionHeader from '@/components/quiz/SectionHeader';
+import OptionButton from '@/components/quiz/OptionButton';
 
 interface ScenarioContentProps {
   scenario: Scenario;

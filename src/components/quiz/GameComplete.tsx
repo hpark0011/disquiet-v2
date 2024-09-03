@@ -4,8 +4,7 @@ import { Impact, Scenario } from '@/types/quiz';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/Icon';
 import Image from 'next/image';
-import MetricCards from './MetricCards';
-
+import MetricCards from '@/components/quiz/MetricCards';
 interface GameCompleteProps {
   totalOutcomes: Impact;
   scenariosLength: number;

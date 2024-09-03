@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import FeedTabs, { TabValue } from '@/components/FeedTabs';
+import FeedTabs, { TabValue } from '@/components/feed-tabs';
 import MainFeed from './components/MainFeed';
 
 export default function HomePage() {

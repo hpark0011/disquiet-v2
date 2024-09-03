@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Article } from '@/types/article';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import PostCardHeader from '../PostCard/PostCardHeader';
+import PostCardHeader from '../post-card/PostCardHeader';
 import LinkedProduct from './LinkedProduct'; // Import the LinkedProduct component
 import Tags from './Tags'; // Import the Tags component
 

@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import QuizPostCard from '@/components/Quiz/QuizPostCard';
+import QuizPostCard from '@/components/quiz/QuizPostCard';
 import TwitterLikeEditor from '@/components/TwitterLikeEditor';
-import ArticleFeed from '@/components/ArticleFeed';
+import ArticleFeed from '@/components/article-feed';
 import { useQuiz } from '@/hooks/useQuiz';
 
 const MainFeed: React.FC = () => {

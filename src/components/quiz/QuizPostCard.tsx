@@ -5,7 +5,7 @@ import { scenarios, mockPMGame } from '@/data/pmGameData';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import PMGamePlayer from '@/components/Quiz/PMGamePlayer';
+import PMGamePlayer from '@/components/quiz/PMGamePlayer';
 import Icon from '@/components/Icon';
 import Image from 'next/image';
 import { useQuiz } from '@/hooks/useQuiz';

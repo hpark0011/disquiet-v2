@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quiz, Scenario, Impact, Option } from '@/types/quiz';
-import ProgressBar from '@/components/Quiz/ProgressBar';
-import ScenarioContent from '@/components/Quiz/ScenarioContent';
-import MetricCards from '@/components/Quiz/MetricCards';
-import GameComplete from '@/components/Quiz/GameComplete';
-import SectionHeader from '@/components/Quiz/SectionHeader';
+import ProgressBar from '@/components/quiz/ProgressBar';
+import ScenarioContent from '@/components/quiz/ScenarioContent';
+import MetricCards from '@/components/quiz/MetricCards';
+import GameComplete from '@/components/quiz/GameComplete';
+import SectionHeader from '@/components/quiz/SectionHeader';
 
 interface PMGamePlayerProps {
   quiz: Quiz;
