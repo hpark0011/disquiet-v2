@@ -11,11 +11,11 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
   onTabChange,
 }) => {
   const tabs: TabOption[] = [
-    { value: 'posts', label: 'Posts' },
-    { value: 'replies', label: 'Replies' },
-    { value: 'articles', label: 'Articles' },
-    { value: 'media', label: 'Media' },
-    { value: 'likes', label: 'Likes' },
+    { value: 'replies', label: '메이커 소개' },
+    { value: 'posts', label: '로그' },
+    { value: 'articles', label: '아티클' },
+    { value: 'media', label: '리뷰' },
+    { value: 'likes', label: '업보트' },
   ];
 
   return (
@@ -23,8 +23,10 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
       tabs={tabs}
       activeTab={activeTab}
       onTabChange={onTabChange}
-      className='w-full'
-      tabClassName='capitalize'
+      variant='full'
+      size='lg'
+      className='bg-primary h-fit rounded-lg'
+      tabClassName='px-2'
     />
   );
 };

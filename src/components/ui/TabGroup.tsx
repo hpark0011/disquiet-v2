@@ -13,6 +13,8 @@ interface TabGroupProps {
   tabs: TabOption[];
   activeTab: string;
   onTabChange: (value: string) => void;
+  variant?: 'fit' | 'full';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
   tabClassName?: string;
 }
@@ -21,19 +23,37 @@ const TabGroup: React.FC<TabGroupProps> = ({
   tabs,
   activeTab,
   onTabChange,
+  variant = 'fit',
+  size = 'md',
   className = '',
   tabClassName = '',
 }) => {
+  const styleClasses = variant === 'full' ? 'w-full' : 'w-fit';
+  const sizeClasses = {
+    sm: 'h-6 text-xs',
+    md: 'h-7 text-xs',
+    lg: 'h-8 text-xs',
+  }[size];
+
+  const listRoundedClass = size === 'lg' ? 'rounded-[8px]' : 'rounded-lg';
+  const triggerRoundedClass = size === 'lg' ? 'rounded-[6px]' : 'rounded-[6px]';
+
   return (
-    <Tabs value={activeTab} onValueChange={onTabChange} className={className}>
-      <TabsList className='bg-tab-list h-fit rounded-lg'>
+    <Tabs
+      value={activeTab}
+      onValueChange={onTabChange}
+      className={`${styleClasses} ${className}`}
+    >
+      <TabsList
+        className={`bg-tab-list h-fit rounded-lg ${listRoundedClass} ${className} ${styleClasses}`}
+      >
         {tabs.map((tab, index) => (
           <React.Fragment key={tab.value}>
             {index > 0 && (
               <div className='w-px h-3 bg-divider-secondary mx-0.5' />
             )}
             <TabsTrigger
-              className={`h-7 rounded-[6px] ${tabClassName}`}
+              className={`rounded-[6px] ${triggerRoundedClass} ${sizeClasses} ${styleClasses} ${tabClassName}`}
               value={tab.value}
             >
               {tab.label}
