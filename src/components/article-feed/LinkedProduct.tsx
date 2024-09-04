@@ -20,7 +20,7 @@ const LinkedProduct: React.FC<LinkedProductProps> = ({
       alt={title}
       className='w-6 h-6 rounded-lg bg-white border-primary border-[1px]'
     />
-    <p className='text-post-meta text-primary font-medium'>{title}</p>
+    <p className='text-label text-primary font-medium'>{title}</p>
   </div>
 );
 

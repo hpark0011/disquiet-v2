@@ -23,10 +23,10 @@ const PostCardHeader = ({
         {/* <AvatarFallback>avatar</AvatarFallback> */}
       </Avatar>
       <div className='ml-2 flex items-center space-x-2'>
-        <p className='text-post-meta font-semibold text-primary'>
+        <p className='text-label font-semibold text-primary'>
           {article.author.name}
         </p>
-        <p className='text-post-meta text-tertiary'>
+        <p className='text-label text-tertiary'>
           {article.author.role} <span className='text-divider-tertiary'>·</span>{' '}
           {article.timestamp}
         </p>

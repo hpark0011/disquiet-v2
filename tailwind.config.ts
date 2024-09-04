@@ -100,6 +100,9 @@ const config = {
         'divider-tertiary': 'var(--border-color-tertiary)',
       },
       backgroundColor: {
+        primary: 'var(--color-background-primary)',
+        secondary: 'var(--color-background-secondary)',
+        tertiary: 'var(--color-background-tertiary)',
         'divider-primary': 'var(--border-color-primary)',
         'divider-secondary': 'var(--border-color-secondary)',
         'divider-tertiary': 'var(--border-color-tertiary)',
@@ -110,7 +113,7 @@ const config = {
         tertiary: 'var(--border-color-tertiary)',
       },
       fontSize: {
-        'post-meta': '13px',
+        label: '13px',
       },
     },
   },
