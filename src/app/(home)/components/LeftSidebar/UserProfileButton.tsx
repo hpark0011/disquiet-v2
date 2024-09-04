@@ -14,7 +14,7 @@ const UserProfileButton: React.FC<UserProfileButtonProps> = React.memo(
     <Button variant='ghost' className='w-full justify-center' onClick={onClick}>
       <Avatar className='h-8 w-8'>
         <AvatarImage src={avatarSrc} alt={userName} />
-        <AvatarFallback>{userName[0]}</AvatarFallback>
+        <AvatarFallback className='bg-primary'>{userName[0]}</AvatarFallback>
       </Avatar>
       {expanded && (
         <span className='ml-3 whitespace-nowrap overflow-hidden'>
