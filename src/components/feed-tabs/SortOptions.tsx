@@ -24,7 +24,7 @@ export const SortOptions: React.FC<SortOptionsProps> = React.memo(
         onTabChange={(value) => onSortChange(value as SortValue)}
         variant='fit'
         size='sm'
-        className='bg-tab-background h-fit rounded-lg'
+        className='h-fit rounded-lg'
         tabClassName='px-2'
       />
     </div>

@@ -37,6 +37,8 @@ const TabGroup: React.FC<TabGroupProps> = ({
 
   const listRoundedClass = size === 'lg' ? 'rounded-[8px]' : 'rounded-lg';
   const triggerRoundedClass = size === 'lg' ? 'rounded-[6px]' : 'rounded-[6px]';
+  const listBackgroundColor =
+    variant === 'full' ? 'bg-tab-list-primary' : 'bg-tab-list-secondary';
 
   return (
     <Tabs
@@ -45,7 +47,7 @@ const TabGroup: React.FC<TabGroupProps> = ({
       className={`${styleClasses} ${className}`}
     >
       <TabsList
-        className={`bg-tab-list h-fit rounded-lg ${listRoundedClass} ${className} ${styleClasses}`}
+        className={`${listBackgroundColor} h-fit rounded-lg ${listRoundedClass} ${className} ${styleClasses}`}
       >
         {tabs.map((tab, index) => (
           <React.Fragment key={tab.value}>

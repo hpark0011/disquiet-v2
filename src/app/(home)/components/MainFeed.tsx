@@ -4,7 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import QuizPostCard from '@/components/quiz/QuizPostCard';
 import TwitterLikeEditor from '@/components/TwitterLikeEditor';
-import ArticleFeed from '@/components/article-feed';
+import ArticleFeed from '@/components/article';
 import { useQuiz } from '@/hooks/useQuiz';
 
 const MainFeed: React.FC = () => {

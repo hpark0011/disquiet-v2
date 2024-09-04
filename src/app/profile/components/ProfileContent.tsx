@@ -1,6 +1,6 @@
 import React from 'react';
 import PostCard from '@/components/post-card/PostCard';
-import ArticleCard from '@/components/article-feed/ArticleCard';
+import ArticleCard from '@/components/article/ArticleCard';
 import { dummyArticles } from '@/data/dummyArticles';
 
 interface ProfileContentProps {

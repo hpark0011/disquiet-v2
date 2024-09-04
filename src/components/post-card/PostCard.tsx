@@ -26,24 +26,28 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const likeCount = getConsistentRandomNumber(likeId, 200);
 
   return (
-    <div className='bg-white rounded-lg shadow-sm p-4'>
-      <PostCardHeader article={post} />
-      <p className='mt-2 text-gray-800'>{post.content}</p>
-      {post.featuredImage && (
-        <div className='mt-4'>
-          <Image
-            src={post.featuredImage}
-            alt='Post image'
-            width={600}
-            height={400}
-            className='rounded-lg object-cover'
-          />
+    <div className='flex flex-col relative'>
+      <PostCardHeader article={post} postType='log' /> {/* body */}
+      <div className='flex flex-col pl-[36px] -top-[8px] relative'>
+        <div className='bg-white rounded-post-card shadow-post-card-light p-4'>
+          <p className='text-sm text-primary'>{post.content}</p>
+          {post.featuredImage && (
+            <div className='mt-4'>
+              <Image
+                src={post.featuredImage}
+                alt='Post image'
+                width={600}
+                height={400}
+                className='rounded-lg object-cover'
+              />
+            </div>
+          )}
+          <div className='mt-4 flex justify-between text-gray-500 text-sm'>
+            <span>💬 {commentCount} Comments</span>
+            <span>🔁 {repostCount} Reposts</span>
+            <span>❤️ {likeCount} Likes</span>
+          </div>
         </div>
-      )}
-      <div className='mt-4 flex justify-between text-gray-500 text-sm'>
-        <span>💬 {commentCount} Comments</span>
-        <span>🔁 {repostCount} Reposts</span>
-        <span>❤️ {likeCount} Likes</span>
       </div>
     </div>
   );

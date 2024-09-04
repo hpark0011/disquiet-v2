@@ -24,8 +24,8 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
       activeTab={activeTab}
       onTabChange={onTabChange}
       variant='full'
-      size='lg'
-      className='bg-primary h-fit rounded-lg'
+      size='md'
+      className='bg-tab-list-primary h-fit rounded-lg'
       tabClassName='px-2'
     />
   );

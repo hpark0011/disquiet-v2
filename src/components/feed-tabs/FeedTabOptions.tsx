@@ -36,7 +36,7 @@ const FeedTabOptions: React.FC<TabGroupProps> = React.memo(
         tabs={tabOptions}
         activeTab={activeTab}
         onTabChange={handleTabChange}
-        variant='full'
+        variant='fit'
         size='md'
         className='max-w-[400px]'
       />

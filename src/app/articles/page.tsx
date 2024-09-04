@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import ArticleFeed from '@/components/article-feed';
+import ArticleFeed from '@/components/article';
 import FeedTabs, { TabValue } from '@/components/feed-tabs';
 
 export default function ArticlesPage() {
