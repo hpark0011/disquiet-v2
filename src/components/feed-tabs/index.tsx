@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
-import TabGroup, { TabValue } from './TabGroup';
+import TabGroup, { TabValue } from './FeedTabOptions';
 import { SortOptions, SortValue } from './SortOptions';
 import { NewPostButton } from './NewPostButton';
 

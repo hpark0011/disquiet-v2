@@ -106,6 +106,7 @@ const config = {
         'divider-primary': 'var(--border-color-primary)',
         'divider-secondary': 'var(--border-color-secondary)',
         'divider-tertiary': 'var(--border-color-tertiary)',
+        'tab-list': 'var(--color-background-tab-list)',
       },
       borderColor: {
         primary: 'var(--border-color-primary)',

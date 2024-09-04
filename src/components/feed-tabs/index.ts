@@ -1,4 +1,4 @@
-import TabGroup from './TabGroup';
+import TabGroup from './FeedTabOptions';
 
 export default TabGroup;
-export * from './TabGroup';
+export * from './FeedTabOptions';

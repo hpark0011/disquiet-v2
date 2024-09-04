@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import TabGroup, { TabOption } from '@/components/ui/TabGroup';
 
 interface ProfileTabsProps {
   activeTab: string;
@@ -10,23 +10,22 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
   activeTab,
   onTabChange,
 }) => {
-  const tabs = ['posts', 'replies', 'articles', 'media', 'likes'];
+  const tabs: TabOption[] = [
+    { value: 'posts', label: 'Posts' },
+    { value: 'replies', label: 'Replies' },
+    { value: 'articles', label: 'Articles' },
+    { value: 'media', label: 'Media' },
+    { value: 'likes', label: 'Likes' },
+  ];
 
   return (
-    <div className='flex space-x-2 border-b'>
-      {tabs.map((tab) => (
-        <Button
-          key={tab}
-          variant='ghost'
-          className={`capitalize ${
-            activeTab === tab ? 'border-b-2 border-blue-500' : ''
-          }`}
-          onClick={() => onTabChange(tab)}
-        >
-          {tab}
-        </Button>
-      ))}
-    </div>
+    <TabGroup
+      tabs={tabs}
+      activeTab={activeTab}
+      onTabChange={onTabChange}
+      className='w-full'
+      tabClassName='capitalize'
+    />
   );
 };
 
