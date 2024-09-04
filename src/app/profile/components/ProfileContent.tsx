@@ -2,6 +2,7 @@ import React from 'react';
 import PostCard from '@/components/post-card/PostCard';
 import ArticleCard from '@/components/article/ArticleCard';
 import { dummyArticles } from '@/data/dummyArticles';
+import { dummyLogs } from '@/data/dummyLogs';
 
 interface ProfileContentProps {
   activeTab: string;
@@ -13,15 +14,15 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ activeTab }) => {
       case 'posts':
         return (
           <div className='space-y-4'>
-            {dummyArticles.slice(0, 3).map((article) => (
-              <PostCard key={article.id} post={article} />
+            {dummyLogs.map((log) => (
+              <PostCard key={log.id} post={log} />
             ))}
           </div>
         );
       case 'articles':
         return (
           <div className='space-y-4'>
-            {dummyArticles.slice(0, 3).map((article) => (
+            {dummyArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>

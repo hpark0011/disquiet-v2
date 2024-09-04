@@ -1,33 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
-import { Article } from '@/types/article';
+import { Log } from '@/types/log';
 import PostCardHeader from './PostCardHeader';
+import PostCardFooter from './PostCardFooter';
 
 interface PostCardProps {
-  post: Article;
+  post: Log;
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
-  // Use React.useId() to generate consistent IDs for client and server
-  const commentId = React.useId();
-  const repostId = React.useId();
-  const likeId = React.useId();
-
-  // Use these IDs to generate consistent "random" numbers
-  const getConsistentRandomNumber = (id: string, max: number) => {
-    const hash = id.split('').reduce((acc, char) => {
-      return char.charCodeAt(0) + ((acc << 5) - acc);
-    }, 0);
-    return Math.abs(hash) % max;
-  };
-
-  const commentCount = getConsistentRandomNumber(commentId, 100);
-  const repostCount = getConsistentRandomNumber(repostId, 50);
-  const likeCount = getConsistentRandomNumber(likeId, 200);
-
   return (
     <div className='flex flex-col relative'>
-      <PostCardHeader article={post} postType='log' /> {/* body */}
+      <PostCardHeader post={post} postType='log' /> {/* body */}
       <div className='flex flex-col pl-[36px] -top-[8px] relative'>
         <div className='bg-white rounded-post-card shadow-post-card-light p-4'>
           <p className='text-sm text-primary'>{post.content}</p>
@@ -42,11 +26,12 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
               />
             </div>
           )}
-          <div className='mt-4 flex justify-between text-gray-500 text-sm'>
-            <span>💬 {commentCount} Comments</span>
-            <span>🔁 {repostCount} Reposts</span>
-            <span>❤️ {likeCount} Likes</span>
-          </div>
+          <PostCardFooter
+            views={post.views}
+            upvotes={post.upvotes}
+            comments={post.commentCount}
+            reposts={post.repostCount}
+          />
         </div>
       </div>
     </div>
