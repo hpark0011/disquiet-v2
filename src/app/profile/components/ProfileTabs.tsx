@@ -11,11 +11,11 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
   onTabChange,
 }) => {
   const tabs: TabOption[] = [
-    { value: 'replies', label: '메이커 소개' },
+    { value: 'about', label: '메이커 소개' },
     { value: 'posts', label: '로그' },
     { value: 'articles', label: '아티클' },
-    { value: 'media', label: '리뷰' },
-    { value: 'likes', label: '업보트' },
+    { value: 'reviews', label: '리뷰' },
+    { value: 'upvotes', label: '업보트' },
   ];
 
   return (

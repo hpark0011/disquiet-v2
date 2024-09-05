@@ -3,6 +3,7 @@ import PostCard from '@/components/post-card/PostCard';
 import ArticleFeed from '@/components/article/ArticleFeed';
 import { dummyArticles } from '@/data/dummyArticles';
 import { dummyLogs } from '@/data/dummyLogs';
+import AboutSection from '@/components/profile/AboutSection';
 
 interface ProfileContentProps {
   activeTab: string;
@@ -21,8 +22,14 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ activeTab }) => {
         );
       case 'articles':
         return <ArticleFeed articles={dummyArticles} isProfileContent={true} />;
+      case 'about':
+        return <AboutSection />;
       default:
-        return <p>No content available for this tab.</p>;
+        return (
+          <div className='space-y-[48px]'>
+            <p>No content available for this tab.</p>
+          </div>
+        );
     }
   };
 
