@@ -1,9 +1,13 @@
 import React from 'react';
-import { Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DropResult,
+} from 'react-beautiful-dnd';
 import { Profile } from '@/types/profile';
 import BentoItem, { BentoItemData } from './BentoItem';
 import { Button } from '@/components/ui/button';
-import DragDropContextWithNoSSR from './DragDropContextWithNoSSR';
 
 interface BentoGridProps {
   profile: Profile;
@@ -70,8 +74,8 @@ const BentoGrid: React.FC<BentoGridProps> = ({
       <Button onClick={() => setIsEditMode(!isEditMode)} className='mb-4'>
         {isEditMode ? 'Save Layout' : 'Edit Layout'}
       </Button>
-      <DragDropContextWithNoSSR onDragEnd={onDragEnd}>
-        <Droppable droppableId='bento-grid'>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId='bento-grid' direction='horizontal'>
           {(provided) => (
             <div
               {...provided.droppableProps}
@@ -90,7 +94,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
                   index={index}
                   isDragDisabled={!isEditMode}
                 >
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
@@ -101,7 +105,11 @@ const BentoGrid: React.FC<BentoGridProps> = ({
                         gridRow: `span ${item.rowSpan || 1}`,
                       }}
                     >
-                      <BentoItem item={item} isEditMode={isEditMode} />
+                      <BentoItem
+                        item={item}
+                        isEditMode={isEditMode}
+                        isDragging={snapshot.isDragging}
+                      />
                     </div>
                   )}
                 </Draggable>
@@ -110,7 +118,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
             </div>
           )}
         </Droppable>
-      </DragDropContextWithNoSSR>
+      </DragDropContext>
     </div>
   );
 };

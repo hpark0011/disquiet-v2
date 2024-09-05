@@ -12,9 +12,14 @@ export interface BentoItemData {
 interface BentoItemProps {
   item: BentoItemData;
   isEditMode: boolean;
+  isDragging: boolean;
 }
 
-const BentoItem: React.FC<BentoItemProps> = ({ item, isEditMode }) => {
+const BentoItem: React.FC<BentoItemProps> = ({
+  item,
+  isEditMode,
+  isDragging,
+}) => {
   const jiggleVariants = {
     jiggle: {
       rotate: [0, -1, 1, -1, 1, 0],
@@ -36,6 +41,9 @@ const BentoItem: React.FC<BentoItemProps> = ({ item, isEditMode }) => {
       } w-full h-full`}
       variants={jiggleVariants}
       animate={isEditMode ? 'jiggle' : 'static'}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+      }}
     >
       {item.content}
     </motion.div>
