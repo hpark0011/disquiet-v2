@@ -17,4 +17,6 @@ export interface Article {
     logo: string | StaticImageData;
     title: string;
   };
+  views: number;
+  upvotes: number;
 }

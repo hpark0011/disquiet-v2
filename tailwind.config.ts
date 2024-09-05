@@ -58,6 +58,7 @@ const config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        'post-card': 'var(--border-radius-post-card)',
       },
       keyframes: {
         'accordion-down': {
@@ -83,6 +84,10 @@ const config = {
         'secondary-button-hover':
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(0, 0, 0, 0.1)',
         'quiz-card': '0px 8px 20px -4px rgba(0, 0, 0, 0.15)',
+        'post-card-light':
+          '0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 16px 32px -8px rgba(0, 0, 0, 0.1)',
+        'post-card-default':
+          '0px 1px 3px 0px rgba(0, 0, 0, 0.15), 0px 16px 32px -8px rgba(0, 0, 0, 0.15)',
         'branded-button-hover':
           // customize rgba value
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(116, 45, 221, 0.4)',
@@ -100,9 +105,14 @@ const config = {
         'divider-tertiary': 'var(--border-color-tertiary)',
       },
       backgroundColor: {
+        primary: 'var(--color-background-primary)',
+        secondary: 'var(--color-background-secondary)',
+        tertiary: 'var(--color-background-tertiary)',
         'divider-primary': 'var(--border-color-primary)',
         'divider-secondary': 'var(--border-color-secondary)',
         'divider-tertiary': 'var(--border-color-tertiary)',
+        'tab-list-primary': 'var(--color-background-tab-list-primary)',
+        'tab-list-secondary': 'var(--color-background-tab-list-secondary)',
       },
       borderColor: {
         primary: 'var(--border-color-primary)',
@@ -110,7 +120,7 @@ const config = {
         tertiary: 'var(--border-color-tertiary)',
       },
       fontSize: {
-        'post-meta': '13px',
+        label: '13px',
       },
     },
   },

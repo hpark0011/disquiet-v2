@@ -9,14 +9,23 @@ import Tags from './Tags';
 
 interface ArticleCardProps {
   article: Article;
+  isProfileContent?: boolean; // New prop
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
-  <div className='max-w-[680px] flex flex-row mx-auto p-4 rounded-2xl space-x-4 items-center bg-[#f5f5f7] border-transparent shadow-none hover:bg-gray-50 cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out'>
+const ArticleCard: React.FC<ArticleCardProps> = ({
+  article,
+  isProfileContent = false,
+}) => (
+  <div
+    className={`max-w-[680px] flex flex-row mx-auto p-4 rounded-2xl space-x-4 items-center ${
+      isProfileContent
+        ? 'bg-white hover:bg-gray-50'
+        : 'bg-home-feed hover:bg-gray-50'
+    } border-transparent shadow-none cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out`}
+  >
     <div className='flex items justify-center flex-col'>
       {/* header */}
-      <PostCardHeader article={article} />
-
+      <PostCardHeader post={article} postType='article' />
       {/* body */}
       <h2 className='text-base font-semibold text-black mb-2'>
         {article.title}
@@ -24,7 +33,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
       <p className='text-sm font-normal text-secondary mb-2 line-clamp-3'>
         {article.content}
       </p>
-
       {/* footer */}
       <div className='flex flex-row items-center gap-3'>
         {article.linkedProduct && (

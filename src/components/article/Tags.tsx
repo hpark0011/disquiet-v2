@@ -7,7 +7,7 @@ interface TagsProps {
 const Tags: React.FC<TagsProps> = ({ tags }) => (
   <div className='flex flex-wrap gap-[6px]'>
     {tags.map((tag) => (
-      <span key={tag} className='text-link text-post-meta rounded'>
+      <span key={tag} className='text-link text-label rounded'>
         #{tag}
       </span>
     ))}

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const RightBanners = () => {
   return (
-    <div className='bg-gray-100 p-4 w-64'>
+    <div className='p-4 w-64'>
       <h2 className='font-bold mb-4'>Featured Products</h2>
       <div className='bg-white p-2 mb-2 rounded shadow'>
         <Image

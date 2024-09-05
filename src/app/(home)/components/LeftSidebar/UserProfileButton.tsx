@@ -12,9 +12,11 @@ interface UserProfileButtonProps {
 const UserProfileButton: React.FC<UserProfileButtonProps> = React.memo(
   ({ expanded, onClick, userName, avatarSrc }) => (
     <Button variant='ghost' className='w-full justify-center' onClick={onClick}>
-      <Avatar className='h-8 w-8'>
+      <Avatar className='h-[44px] w-[44px]'>
         <AvatarImage src={avatarSrc} alt={userName} />
-        <AvatarFallback>{userName[0]}</AvatarFallback>
+        <AvatarFallback className='bg-primary w-[44px] h-[44px] flex items-center justify-center'>
+          {userName[0]}
+        </AvatarFallback>
       </Avatar>
       {expanded && (
         <span className='ml-3 whitespace-nowrap overflow-hidden'>
