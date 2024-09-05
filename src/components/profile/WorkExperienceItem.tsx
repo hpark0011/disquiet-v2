@@ -35,7 +35,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
       <ProfileSection
         label='스택'
         content={
-          <div className='flex gap-2 flex-wrap'>
+          <div className='flex gap-1 flex-wrap'>
             {skills.map((skill, index) => (
               <Badge
                 key={index}

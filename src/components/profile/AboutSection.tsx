@@ -5,7 +5,7 @@ import { dummyWorkExperience, dummyEducation } from '@/data/dummyProfileData';
 
 const AboutSection: React.FC = () => {
   return (
-    <div className='space-y-12 px-4'>
+    <div className='space-y-12 px-4 pt-4'>
       <section>
         <h2 className='text-sm font-medium mb-6'>이력</h2>
         <div className='space-y-12'>
