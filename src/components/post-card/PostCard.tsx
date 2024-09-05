@@ -22,7 +22,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                 alt='Post image'
                 width={600}
                 height={400}
-                className='rounded-lg object-cover'
+                className='rounded-2xl object-cover'
               />
             </div>
           )}

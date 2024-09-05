@@ -5,6 +5,7 @@
   --color-background-tertiary: var(--color-dq-gray-100);
   --color-background-tab-list-primary: var(--color-dq-gray-50);
   --color-background-tab-list-secondary: var(--color-dq-gray-75);
+  --color-background-primary-button-hover: var(--color-dq-gray-50);
   /* Text Colors */
   --color-text-primary: var(--color-dq-gray-900);
   --color-text-secondary: var(--color-dq-gray-600);
@@ -65,6 +66,7 @@
   --color-background-tertiary: var(--color-dq-gray-700);
   --color-background-tab-list-primary: var(--color-dq-gray-75);
   --color-background-tab-list-secondary: var(--color-dq-gray-700);
+  --color-background-primary-button-hover: var(--color-dq-gray-700);
   /* Text Colors */
   --color-text-primary: var(--color-dq-gray-50);
   --color-text-secondary: var(--color-dq-gray-300);

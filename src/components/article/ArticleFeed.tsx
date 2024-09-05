@@ -27,7 +27,11 @@ const ArticleFeed: React.FC<ArticleFeedProps> = ({
             />
           )}
           {index < articles.length - 1 && (
-            <div className='my-2 h-[1px] w-full bg-divider-secondary max-w-[640px]' />
+            <div
+              className={`my-2 h-[1px] w-full ${
+                isProfileContent ? 'bg-divider-primary' : 'bg-divider-secondary'
+              } max-w-[640px]`}
+            />
           )}
         </React.Fragment>
       ))}

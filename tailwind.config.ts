@@ -113,6 +113,7 @@ const config = {
         'divider-tertiary': 'var(--border-color-tertiary)',
         'tab-list-primary': 'var(--color-background-tab-list-primary)',
         'tab-list-secondary': 'var(--color-background-tab-list-secondary)',
+        'primary-button-hover': 'var(--color-background-primary-button-hover)',
       },
       borderColor: {
         primary: 'var(--border-color-primary)',

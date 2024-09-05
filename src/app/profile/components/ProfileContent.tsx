@@ -13,7 +13,7 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ activeTab }) => {
     switch (activeTab) {
       case 'posts':
         return (
-          <div className='space-y-8'>
+          <div className='space-y-[48px]'>
             {dummyLogs.map((log) => (
               <PostCard key={log.id} post={log} />
             ))}
