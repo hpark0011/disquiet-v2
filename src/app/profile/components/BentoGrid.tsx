@@ -119,7 +119,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
             </div>
           )}
         </Droppable>
-      </DragDropContext>
+      </DragDropContextWithNoSSR>
     </div>
   );
 };
