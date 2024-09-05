@@ -19,10 +19,10 @@ const EducationItem: React.FC<EducationItemProps> = ({
       <ProfileSection
         label={period}
         content={
-          <div>
-            <h3 className='text-lg font-semibold'>{institution}</h3>
-            <p className='text-sm font-medium'>{degree}</p>
-            <p className='text-sm mt-1'>{description}</p>
+          <div className='flex flex-col w-full'>
+            <h3 className='text-sm font-medium text-primary'>{institution}</h3>
+            <p className='text-sm mt-2 text-tertiary'>{degree}</p>
+            <p className='text-sm mt-2'>{description}</p>
           </div>
         }
         alignTop

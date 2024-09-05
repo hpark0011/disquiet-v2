@@ -14,7 +14,7 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ activeTab }) => {
     switch (activeTab) {
       case 'posts':
         return (
-          <div className='space-y-[48px]'>
+          <div className='space-y-[48px] px-4'>
             {dummyLogs.map((log) => (
               <PostCard key={log.id} post={log} />
             ))}
@@ -26,7 +26,7 @@ const ProfileContent: React.FC<ProfileContentProps> = ({ activeTab }) => {
         return <AboutSection />;
       default:
         return (
-          <div className='space-y-[48px]'>
+          <div className='space-y-[48px] px-4'>
             <p>No content available for this tab.</p>
           </div>
         );

@@ -14,7 +14,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className='max-w-[680px] mx-auto p-4 space-y-8 pb-20'>
+    <div className='max-w-[680px] mx-auto p-4 space-y-8 pb-[120px]'>
       <ProfileHeader profile={dummyProfile} />
       <div className='my-8'>
         <ProfileTabs activeTab={activeTab} onTabChange={handleTabChange} />

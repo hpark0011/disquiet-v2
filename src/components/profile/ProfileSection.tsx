@@ -13,7 +13,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
 }) => {
   return (
     <div className={`flex ${alignTop ? 'items-start' : 'items-center'}`}>
-      <span className='text-sm text-muted w-[120px] shrink-0'>{label}</span>
+      <span className='text-label text-muted w-[120px] shrink-0'>{label}</span>
       <div className='flex-1'>{content}</div>
     </div>
   );

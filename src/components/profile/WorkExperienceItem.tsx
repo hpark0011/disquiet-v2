@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import ProfileSection from './ProfileSection';
 
 interface WorkExperienceItemProps {
@@ -21,13 +21,13 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
   teamSize,
 }) => {
   return (
-    <div className='flex flex-col space-y-4'>
+    <div className='flex flex-col space-y-6'>
       <ProfileSection
         label={period}
         content={
-          <div>
-            <h3 className='text-lg font-semibold'>{title}</h3>
-            <p className='text-sm mt-1'>{description}</p>
+          <div className='flex flex-col w-full'>
+            <h3 className='text-sm font-medium text-primary'>{title}</h3>
+            <p className='text-sm mt-2 text-tertiary'>{description}</p>
           </div>
         }
         alignTop
@@ -40,7 +40,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
               <Badge
                 key={index}
                 variant='secondary'
-                className='bg-yellow-100 text-yellow-800'
+                className='bg-primary text-primary'
               >
                 {skill}
               </Badge>
@@ -53,7 +53,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
         content={
           <div>
             {products.map((product, index) => (
-              <span key={index} className='font-semibold mr-2'>
+              <span key={index} className='font-semibold text-sm mr-2'>
                 {product}
               </span>
             ))}
@@ -63,13 +63,19 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
       <ProfileSection
         label='팀원'
         content={
-          <div className='flex -space-x-2 overflow-hidden'>
+          <div className='flex space-x-1 overflow-hidden'>
             {Array.from({ length: teamSize }, (_, index) => (
-              <Avatar key={index} className='border-2 border-background'>
+              <Avatar
+                key={index}
+                className='border-2 border-background w-[32px] h-[32px]'
+              >
                 <AvatarImage
                   src={`/placeholder.svg?height=32&width=32`}
                   alt={`Team member ${index + 1}`}
                 />
+                <AvatarFallback className='bg-primary flex items-center justify-center w-[88px] h-[88px] rounded-full text-xl text-primary'>
+                  T
+                </AvatarFallback>
               </Avatar>
             ))}
           </div>
