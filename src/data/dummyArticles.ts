@@ -20,6 +20,8 @@ export const dummyArticles: Article[] = [
       logo: productLogo,
       title: 'Future Web Dev Tool',
     },
+    views: 1000,
+    upvotes: 50,
   },
   {
     id: '2',
@@ -34,6 +36,8 @@ export const dummyArticles: Article[] = [
     tags: ['디자인', '접근성', 'ux'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    views: 800,
+    upvotes: 30,
   },
   {
     id: '3',
@@ -52,6 +56,8 @@ export const dummyArticles: Article[] = [
       logo: productLogo,
       title: 'ML Web App Suite',
     },
+    views: 1200,
+    upvotes: 75,
   },
   {
     id: '4',
@@ -66,6 +72,8 @@ export const dummyArticles: Article[] = [
     tags: ['리액트', '훅스', '프론트엔드'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    views: 950,
+    upvotes: 45,
   },
   {
     id: '5',
@@ -84,6 +92,8 @@ export const dummyArticles: Article[] = [
       logo: productLogo,
       title: 'Node.js Server Kit',
     },
+    views: 850,
+    upvotes: 40,
   },
   {
     id: '6',
@@ -98,6 +108,8 @@ export const dummyArticles: Article[] = [
     tags: ['데이터', '시각화', '분석'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    views: 750,
+    upvotes: 35,
   },
   {
     id: '7',
@@ -112,5 +124,7 @@ export const dummyArticles: Article[] = [
     tags: ['풀스택', '개발', '기회'],
     featuredImage: articleFeedImage,
     isPremium: false,
+    views: 900,
+    upvotes: 55,
   },
 ];

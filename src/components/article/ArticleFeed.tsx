@@ -1,20 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import React from 'react';
 import { Article } from '@/types/article';
-import { dummyArticles } from '@/data/dummyArticles';
 import ArticleCard from './ArticleCard';
 import PremiumArticleCard from './PremiumArticleCard';
 
-const ArticleFeed: React.FC = () => {
-  const [articles, setArticles] = useState<Article[]>(dummyArticles);
+interface ArticleFeedProps {
+  articles: Article[];
+  isProfileContent?: boolean;
+}
 
-  const loadMoreArticles = () => {
-    // In a real application, this would fetch more articles from an API
-    console.log('Load more articles');
-  };
-
+const ArticleFeed: React.FC<ArticleFeedProps> = ({
+  articles = [], // Default value
+  isProfileContent = false,
+}) => {
   return (
     <div className='max-w-[640px] mx-auto flex flex-col items-center space-y-4'>
       {articles.map((article, index) => (
@@ -22,18 +21,16 @@ const ArticleFeed: React.FC = () => {
           {article.isPremium ? (
             <PremiumArticleCard article={article} />
           ) : (
-            <ArticleCard article={article} />
+            <ArticleCard
+              article={article}
+              isProfileContent={isProfileContent}
+            />
           )}
           {index < articles.length - 1 && (
             <div className='my-2 h-[1px] w-full bg-divider-secondary max-w-[640px]' />
           )}
         </React.Fragment>
       ))}
-      <div className='text-center mt-8'>
-        {/* <Button variant='outline' onClick={loadMoreArticles}>
-          Load More
-        </Button> */}
-      </div>
     </div>
   );
 };
