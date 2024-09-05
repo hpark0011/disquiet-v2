@@ -114,6 +114,7 @@ const config = {
         'tab-list-primary': 'var(--color-background-tab-list-primary)',
         'tab-list-secondary': 'var(--color-background-tab-list-secondary)',
         'primary-button-hover': 'var(--color-background-primary-button-hover)',
+        'tab-trigger-hover': 'var(--color-background-tab-trigger-hover)',
       },
       borderColor: {
         primary: 'var(--border-color-primary)',
