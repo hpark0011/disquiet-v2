@@ -36,12 +36,19 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           </div>
         </div>
         {/* buttons */}
-        <div className='mt-4 space-x-2'>
+        <div className='flex flex-row mt-4 space-x-2 items-center'>
           <Button variant='secondary' size='sm'>
             팔로우
           </Button>
           <Button variant='primary' size='sm'>
             커피챗
+          </Button>
+          <Button
+            variant='ghost'
+            size='sm'
+            className='p-[6px] hover:bg-primary'
+          >
+            <Icon name='ellipsis' className='w-5 h-5' />
           </Button>
         </div>
       </div>

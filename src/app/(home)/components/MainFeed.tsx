@@ -2,12 +2,12 @@
 
 import React from 'react';
 import QuizPostCard from '@/components/quiz/QuizPostCard';
-import TwitterLikeEditor from '@/components/TwitterLikeEditor';
+import LogEditor from '@/components/LogEditor';
 
 const MainFeed: React.FC = () => {
   return (
     <div className='mx-auto p-1 space-y-8'>
-      <TwitterLikeEditor />
+      <LogEditor />
       <QuizPostCard />
     </div>
   );

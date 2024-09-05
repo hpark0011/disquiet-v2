@@ -1,9 +1,10 @@
 'use client';
 import React, { useState } from 'react';
+
+import { dummyProfile } from '@/data/profileData';
 import ProfileHeader from './components/ProfileHeader';
 import ProfileTabs from './components/ProfileTabs';
 import ProfileContent from './components/ProfileContent';
-import { dummyProfile } from '@/data/profileData';
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('posts');
@@ -13,9 +14,11 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className='max-w-[680px] mx-auto p-4 space-y-8'>
+    <div className='max-w-[680px] mx-auto p-4 space-y-8 pb-[120px]'>
       <ProfileHeader profile={dummyProfile} />
-      <ProfileTabs activeTab={activeTab} onTabChange={handleTabChange} />
+      <div className='my-8'>
+        <ProfileTabs activeTab={activeTab} onTabChange={handleTabChange} />
+      </div>
       <ProfileContent activeTab={activeTab} />
     </div>
   );

@@ -6,7 +6,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Icon from '@/components/Icon';
 import { Button } from './ui/button';
 
-const TwitterLikeEditor: React.FC = () => {
+const LogEditor: React.FC = () => {
   const [content, setContent] = useState('');
 
   const editor = useEditor({
@@ -66,4 +66,4 @@ const TwitterLikeEditor: React.FC = () => {
   );
 };
 
-export default TwitterLikeEditor;
+export default LogEditor;
