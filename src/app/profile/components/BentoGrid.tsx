@@ -71,7 +71,12 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 
   return (
     <div className='my-8'>
-      <Button onClick={() => setIsEditMode(!isEditMode)} className='mb-4'>
+      <Button
+        variant={'outline'}
+        size='sm'
+        onClick={() => setIsEditMode(!isEditMode)}
+        className='mb-4'
+      >
         {isEditMode ? 'Save Layout' : 'Edit Layout'}
       </Button>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -80,7 +85,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className='grid grid-cols-4 gap-4'
+              className='grid grid-cols-4 gap-2'
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',

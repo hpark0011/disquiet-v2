@@ -36,7 +36,7 @@ const BentoItem: React.FC<BentoItemProps> = ({
 
   return (
     <motion.div
-      className={`bg-primary p-4 rounded-lg ${
+      className={`bg-primary text-label p-3 py-2 rounded-xl text-muted font-regular ${
         isEditMode ? 'cursor-move' : ''
       } w-full h-full`}
       variants={jiggleVariants}
