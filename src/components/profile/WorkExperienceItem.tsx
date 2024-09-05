@@ -63,7 +63,7 @@ const WorkExperienceItem: React.FC<WorkExperienceItemProps> = ({
       <ProfileSection
         label='팀원'
         content={
-          <div className='flex space-x-1 overflow-hidden'>
+          <div className='flex space-x-[2px] overflow-hidden'>
             {Array.from({ length: teamSize }, (_, index) => (
               <Avatar
                 key={index}

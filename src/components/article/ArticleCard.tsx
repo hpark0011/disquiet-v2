@@ -27,7 +27,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
       {/* header */}
       <PostCardHeader post={article} postType='article' />
       {/* body */}
-      <h2 className='text-base font-semibold text-black mb-2'>
+      <h2 className='text-base font-medium text-primary mb-2'>
         {article.title}
       </h2>
       <p className='text-sm font-normal text-secondary mb-2 line-clamp-3'>
