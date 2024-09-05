@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from 'react-beautiful-dnd';
+import DragDropContextWithNoSSR from './DragDropContextWithNoSSR';
+import { Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Profile } from '@/types/profile';
 import BentoItem, { BentoItemData } from './BentoItem';
 import { Button } from '@/components/ui/button';
@@ -79,7 +75,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
       >
         {isEditMode ? 'Save Layout' : 'Edit Layout'}
       </Button>
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContextWithNoSSR onDragEnd={onDragEnd}>
         <Droppable droppableId='bento-grid' direction='horizontal'>
           {(provided) => (
             <div
