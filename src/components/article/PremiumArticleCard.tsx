@@ -4,10 +4,9 @@ import React from 'react';
 import Image from 'next/image';
 import { Article } from '@/types/article';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import PostCardHeader from '../post-card/PostCardHeader';
 import LinkedProduct from './LinkedProduct'; // Import the LinkedProduct component
 import Tags from './Tags'; // Import the Tags component
-
+import PostCardHeader from '../post-card/PostCardHeader';
 interface PremiumArticleCardProps {
   article: Article;
 }
@@ -19,7 +18,7 @@ const PremiumArticleCard: React.FC<PremiumArticleCardProps> = ({ article }) => (
         <span className='absolute top-4 left-4 text-xs w-fit font-medium py-[3px] px-2 bg-[#ffffff20] rounded-md'>
           Sponsored
         </span>
-        <PostCardHeader article={article} className='dark' />
+        <PostCardHeader post={article} className='dark' postType='article' />
         <h2 className='text-xl font-semibold flex items-center'>
           {article.title}
         </h2>
