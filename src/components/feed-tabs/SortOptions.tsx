@@ -23,7 +23,7 @@ export const SortOptions: React.FC<SortOptionsProps> = React.memo(
         activeTab={activeSort}
         onTabChange={(value) => onSortChange(value as SortValue)}
         variant='fit'
-        size='sm'
+        size='md'
         className='h-fit rounded-lg'
         tabClassName='px-2'
       />

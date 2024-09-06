@@ -7,6 +7,7 @@ export interface TabOption {
   value: string;
   label: string;
   urlSlug?: string;
+  isNew?: boolean;
 }
 
 interface TabGroupProps {
@@ -55,10 +56,17 @@ const TabGroup: React.FC<TabGroupProps> = ({
               <div className='w-px h-3 bg-divider-secondary mx-0.5' />
             )}
             <TabsTrigger
-              className={`rounded-[6px] ${triggerRoundedClass} ${sizeClasses} ${styleClasses} ${tabClassName}`}
+              className={`rounded-[6px] ${triggerRoundedClass} ${sizeClasses} ${styleClasses} ${tabClassName} ${
+                tab.isNew ? 'shadow-new-tab' : ''
+              }`}
               value={tab.value}
             >
               {tab.label}
+              {tab.isNew && (
+                <span className='text-label absolute bg-new-tag -bottom-[30px] text-white px-[6px] py-1 rounded-[6px]'>
+                  New
+                </span>
+              )}
             </TabsTrigger>
           </React.Fragment>
         ))}

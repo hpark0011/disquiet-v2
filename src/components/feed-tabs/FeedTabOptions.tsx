@@ -11,7 +11,7 @@ interface TabGroupProps {
 
 const tabOptions: TabOption[] = [
   { value: '전체', label: '전체', urlSlug: '' },
-  { value: '로그', label: '로그', urlSlug: 'logs' },
+  { value: '로그', label: '로그', urlSlug: 'logs', isNew: true },
   { value: '프로덕트', label: '프로덕트', urlSlug: 'products' },
   { value: '아티클', label: '아티클', urlSlug: 'articles' },
 ];
