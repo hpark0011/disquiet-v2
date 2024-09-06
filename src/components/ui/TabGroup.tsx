@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { cn } from '@/lib/utils';
 
 export interface TabOption {
   value: string;
   label: string;
   urlSlug?: string;
+  isNew?: boolean;
 }
 
 interface TabGroupProps {
@@ -55,10 +57,18 @@ const TabGroup: React.FC<TabGroupProps> = ({
               <div className='w-px h-3 bg-divider-secondary mx-0.5' />
             )}
             <TabsTrigger
-              className={`rounded-[6px] ${triggerRoundedClass} ${sizeClasses} ${styleClasses} ${tabClassName}`}
+              className={cn(
+                `rounded-[6px] ${triggerRoundedClass} ${sizeClasses} ${styleClasses} ${tabClassName}`,
+                tab.isNew && 'shadow-new-tab animate-glow'
+              )}
               value={tab.value}
             >
               {tab.label}
+              {/* {tab.isNew && (
+                <span className='text-[11px] absolute bg-new-tag -bottom-[28px] text-white px-[6px] py-[3px] rounded-[6px]'>
+                  NEW
+                </span>
+              )} */}
             </TabsTrigger>
           </React.Fragment>
         ))}

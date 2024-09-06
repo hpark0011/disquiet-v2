@@ -18,6 +18,12 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'button-primary':
+          'linear-gradient(to bottom, rgba(44, 44, 46, 0.7), #2c2c2e)',
+        'new-tag':
+          'linear-gradient(to bottom, rgba(153, 137, 255, 1), rgba(109, 85, 255, 0.9))',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -69,10 +75,21 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        glow: {
+          '0%, 100%': {
+            boxShadow:
+              '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 2px rgba(109, 85, 255, 0.4)',
+          },
+          '50%': {
+            boxShadow:
+              '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 4px rgba(109, 85, 255, 0.4)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        glow: 'glow 1.6s ease-in-out infinite',
       },
       boxShadow: {
         'primary-button':
@@ -92,6 +109,8 @@ const config = {
           // customize rgba value
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(116, 45, 221, 0.4)',
         'premium-article-image': '0px 14px 28px -7px rgba(0, 0, 0, 0.4)',
+        'new-tab':
+          '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 2px rgba(109, 85, 255, 0.4)',
       },
       textColor: {
         primary: 'var(--color-text-primary)',
