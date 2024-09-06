@@ -64,11 +64,6 @@ const TabGroup: React.FC<TabGroupProps> = ({
               value={tab.value}
             >
               {tab.label}
-              {/* {tab.isNew && (
-                <span className='text-[11px] absolute bg-new-tag -bottom-[28px] text-white px-[6px] py-[3px] rounded-[6px]'>
-                  NEW
-                </span>
-              )} */}
             </TabsTrigger>
           </React.Fragment>
         ))}
