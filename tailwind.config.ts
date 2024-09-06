@@ -97,7 +97,7 @@ const config = {
         'primary-button-hover':
           '0px 4px 12px -2px rgba(0, 0, 0, 0.25), 0px 0px 0px 4px rgba(0, 0, 0, 0.4)',
         'secondary-button':
-          '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 0px rgba(0, 0, 0, 0.4)',
+          '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 0px rgba(0, 0, 0, 0.2)',
         'secondary-button-hover':
           '0px 4px 12px -2px rgba(0, 0, 0, 0.15), 0px 0px 0px 4px rgba(0, 0, 0, 0.1)',
         'quiz-card': '0px 8px 20px -4px rgba(0, 0, 0, 0.15)',
