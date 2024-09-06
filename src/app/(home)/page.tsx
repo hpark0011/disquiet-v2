@@ -1,5 +1,5 @@
+import MainFeed from '@/components/main/MainFeed';
 import React from 'react';
-import MainFeed from './components/MainFeed';
 
 export default function HomePage() {
   return <MainFeed />;

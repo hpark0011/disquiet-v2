@@ -23,7 +23,7 @@ const LogEditor: React.FC = () => {
   };
 
   return (
-    <div className='bg-white rounded-2xl'>
+    <div className='bg-white rounded-2xl w-full'>
       <div className='flex justify-between items-center py-2 px-3'>
         <span className='text-sm'>로그를 작성해보세요.</span>
         <a href='#' className='text-xs flex items-center text-link gap-1'>
