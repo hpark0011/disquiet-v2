@@ -1,7 +1,7 @@
 import React from 'react';
 import TabGroup, { TabOption } from '@/components/ui/TabGroup';
 
-export type TabValue = '전체' | '로그' | '프로덕트' | '아티클';
+export type TabValue = 'all' | 'logs' | 'products' | 'articles';
 
 interface TabGroupProps {
   activeTab: TabValue;
@@ -9,10 +9,10 @@ interface TabGroupProps {
 }
 
 export const tabOptions: TabOption[] = [
-  { value: '전체', label: '전체', urlSlug: '' },
-  { value: '로그', label: '로그', urlSlug: 'logs', isNew: true },
-  { value: '프로덕트', label: '프로덕트', urlSlug: 'products' },
-  { value: '아티클', label: '아티클', urlSlug: 'articles' },
+  { value: 'all', label: '전체', urlSlug: '' },
+  { value: 'logs', label: '로그', urlSlug: 'logs', isNew: true },
+  { value: 'products', label: '프로덕트', urlSlug: 'products' },
+  { value: 'articles', label: '아티클', urlSlug: 'articles' },
 ];
 
 const FeedTabOptions: React.FC<TabGroupProps> = React.memo(

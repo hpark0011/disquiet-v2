@@ -10,23 +10,23 @@ import { tabOptions } from './FeedTabOptions';
 const FeedTabs: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<TabValue>('전체');
+  const [activeTab, setActiveTab] = useState<TabValue>('all');
   const [activeSort, setActiveSort] = useState<SortValue>('인기');
 
   useEffect(() => {
     const path = pathname.split('/')[1];
     switch (path) {
       case 'logs':
-        setActiveTab('로그');
+        setActiveTab('logs');
         break;
       case 'products':
-        setActiveTab('프로덕트');
+        setActiveTab('products');
         break;
       case 'articles':
-        setActiveTab('아티클');
+        setActiveTab('articles');
         break;
       default:
-        setActiveTab('전체');
+        setActiveTab('all');
     }
   }, [pathname]);
 

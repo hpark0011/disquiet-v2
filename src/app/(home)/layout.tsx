@@ -11,10 +11,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const activeTab = pathname?.includes('/articles') ? '아티클' : '전체';
+  const activeTab = pathname?.includes('/articles') ? 'articles' : 'all';
 
   const handleTabChange = (newTab: string) => {
-    if (newTab === '아티클') {
+    if (newTab === 'articles') {
       router.push('/articles');
     } else {
       router.push('/');
