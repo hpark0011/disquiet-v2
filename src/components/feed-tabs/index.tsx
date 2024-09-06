@@ -6,6 +6,11 @@ import TabGroup, { TabValue } from './FeedTabOptions';
 import { SortOptions, SortValue } from './SortOptions';
 import { NewPostButton } from './NewPostButton';
 import { tabOptions } from './FeedTabOptions';
+import {
+  openNewLogModal,
+  openNewProductModal,
+  openNewArticleModal,
+} from '../../utils/modalHelpers';
 
 const FeedTabs: React.FC = () => {
   const pathname = usePathname();
@@ -44,6 +49,20 @@ const FeedTabs: React.FC = () => {
     setActiveSort(value);
   }, []);
 
+  const getNewPostConfig = useCallback(() => {
+    switch (activeTab) {
+      case 'logs':
+      case 'all':
+        return { label: '새 로그', action: openNewLogModal };
+      case 'products':
+        return { label: '새 프로덕트', action: openNewProductModal };
+      case 'articles':
+        return { label: '새 아티클', action: openNewArticleModal };
+      default:
+        return { label: '새 글 쓰기', action: () => {} };
+    }
+  }, [activeTab]);
+
   const handleNewPost = useCallback(() => {
     // Implement new post logic here
     console.log('Creating new post');
@@ -58,7 +77,7 @@ const FeedTabs: React.FC = () => {
             activeSort={activeSort}
             onSortChange={handleSortChange}
           />
-          <NewPostButton onClick={handleNewPost} />
+          <NewPostButton config={getNewPostConfig()} />
         </div>
       </div>
     </div>

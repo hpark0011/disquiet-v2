@@ -3,18 +3,22 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/Icon';
 
 interface NewPostButtonProps {
-  onClick: () => void;
+  config: {
+    label: string;
+    action: () => void;
+  };
 }
 
 export const NewPostButton: React.FC<NewPostButtonProps> = React.memo(
-  ({ onClick }) => (
+  ({ config }) => (
     <Button
       variant='primary'
       size='sm'
       className='flex items-center'
-      onClick={onClick}
+      onClick={config.action}
     >
-      <Icon name='plus' className='w-4 h-4 mr-2' />새 글 쓰기
+      <Icon name='plus' className='w-4 h-4 mr-2' />
+      {config.label}
     </Button>
   )
 );
