@@ -6,7 +6,17 @@ import StarterKit from '@tiptap/starter-kit';
 import Icon from '@/components/Icon';
 import { Button } from './ui/button';
 
-const LogEditor: React.FC = () => {
+interface LogEditorProps {
+  onSubmit: (content: string) => void;
+  onClose?: () => void;
+  isModal?: boolean; // Add this prop
+}
+
+const LogEditor: React.FC<LogEditorProps> = ({
+  onSubmit,
+  onClose,
+  isModal = false,
+}) => {
   const [content, setContent] = useState('');
 
   const editor = useEditor({
@@ -18,14 +28,14 @@ const LogEditor: React.FC = () => {
   });
 
   const handlePost = () => {
-    console.log('Posted:', content);
+    onSubmit(content);
     editor?.commands.setContent('');
   };
 
   return (
     <div className='bg-white rounded-2xl w-full'>
       <div className='flex justify-between items-center py-2 px-3'>
-        <span className='text-sm'>로그를 작성해보세요.</span>
+        <span className='text-xs'>로그를 작성해보세요.</span>
         <a href='#' className='text-xs flex items-center text-link gap-1'>
           로그 작성 팁<Icon name='info.circle' className='w-4 h-4' />
         </a>
@@ -35,7 +45,9 @@ const LogEditor: React.FC = () => {
         <div className='flex-grow'>
           <EditorContent
             editor={editor}
-            className='min-h-[56px] rounded-md p-2 mb-2 border-none'
+            className={`${
+              isModal ? 'min-h-[96px]' : 'min-h-[56px]'
+            } rounded-md p-2 mb-2 border-none`}
             placeholder='어떤 것을 만들고 있나요?'
           />
           <div className='flex justify-between items-center'>
@@ -52,8 +64,8 @@ const LogEditor: React.FC = () => {
               </button>
             </div>
             <div className='flex space-x-1'>
-              <Button variant='secondary' size='xs'>
-                관련 프로덕트
+              <Button variant='secondary' size='xs' onClick={onClose}>
+                취소
               </Button>
               <Button variant='primary' size='xs' onClick={handlePost}>
                 로그 남기기
