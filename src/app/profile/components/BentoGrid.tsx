@@ -88,6 +88,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
               <motion.div
                 key={item.id}
                 data-swapy-slot={item.id}
+                className='bg-gray-50 text-label rounded-xl text-muted font-regular'
                 style={{
                   gridColumn: `span ${item.colSpan || 1}`,
                   gridRow: `span ${item.rowSpan || 1}`,

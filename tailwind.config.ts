@@ -85,11 +85,18 @@ const config = {
               '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 4px rgba(109, 85, 255, 0.4)',
           },
         },
+        jiggle: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+          '75%': { transform: 'rotate(-1deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         glow: 'glow 1.6s ease-in-out infinite',
+        jiggle: 'jiggle 0.5s ease-in-out infinite',
       },
       boxShadow: {
         'primary-button':
