@@ -5,6 +5,7 @@ import Logo from '../Logo';
 import NavMenu from './NavMenu';
 import NewPostButton from './NewPostButton';
 import UserProfileButton from './UserProfileButton';
+import Link from 'next/link';
 
 const navItems = [
   { href: '/', icon: 'house', label: 'Home' },
@@ -80,12 +81,14 @@ const LeftSidebar: React.FC = () => {
         </div>
       </div>
       <div className='flex-shrink-0 mt-auto pt-4 flex flex-start'>
-        <UserProfileButton
-          expanded={expanded || dropdownOpen}
-          onClick={handleNavClick}
-          userName='User Name'
-          avatarSrc='/avatar.png'
-        />
+        <Link href='/profile'>
+          <UserProfileButton
+            expanded={expanded || dropdownOpen}
+            onClick={handleNavClick}
+            userName='User Name'
+            avatarSrc='/avatar.png'
+          />
+        </Link>
       </div>
     </aside>
   );
