@@ -1,10 +1,8 @@
 import React from 'react';
-import DragDropContextWithNoSSR from './DragDropContextWithNoSSR';
-import { Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Profile } from '@/types/profile';
-import BentoItem, { BentoItemData } from './BentoItem';
+import WidgetItem, { WidgetItemData } from './WidgetItem';
 import { Button } from '@/components/ui/button';
-
+import { useWidgets } from '@/hooks/useWidgets';
 interface BentoGridProps {
   profile: Profile;
   isEditMode: boolean;
@@ -16,8 +14,15 @@ const BentoGrid: React.FC<BentoGridProps> = ({
   isEditMode,
   setIsEditMode,
 }) => {
-  const [items, setItems] = React.useState<BentoItemData[]>([
-    { id: 'item-1', type: 'skills', content: 'Skills', colSpan: 2, rowSpan: 1 },
+  const { widgets, changeWidgetSize, placeholderCount } = useWidgets();
+  const [items, setItems] = React.useState<WidgetItemData[]>([
+    {
+      id: 'item-1',
+      type: 'skills',
+      content: 'Skills',
+      colSpan: 2,
+      rowSpan: 1,
+    },
     {
       id: 'item-2',
       type: 'project',
@@ -55,16 +60,6 @@ const BentoGrid: React.FC<BentoGridProps> = ({
     },
   ]);
 
-  const onDragEnd = (result: DropResult) => {
-    if (!result.destination) return;
-
-    const newItems = Array.from(items);
-    const [reorderedItem] = newItems.splice(result.source.index, 1);
-    newItems.splice(result.destination.index, 0, reorderedItem);
-
-    setItems(newItems);
-  };
-
   return (
     <div className='my-8'>
       <Button
@@ -75,51 +70,29 @@ const BentoGrid: React.FC<BentoGridProps> = ({
       >
         {isEditMode ? 'Save Layout' : 'Edit Layout'}
       </Button>
-      <DragDropContextWithNoSSR onDragEnd={onDragEnd}>
-        <Droppable droppableId='bento-grid' direction='horizontal'>
-          {(provided) => (
+
+      <div
+        className='grid grid-cols-4 gap-2'
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridAutoRows: '120px',
+        }}
+      >
+        {items.map((item, index) => {
+          return (
             <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              className='grid grid-cols-4 gap-2'
+              key={item.id}
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gridAutoRows: '120px',
+                gridColumn: `span ${item.colSpan || 1}`,
+                gridRow: `span ${item.rowSpan || 1}`,
               }}
             >
-              {items.map((item, index) => (
-                <Draggable
-                  key={item.id}
-                  draggableId={item.id}
-                  index={index}
-                  isDragDisabled={!isEditMode}
-                >
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={{
-                        ...provided.draggableProps.style,
-                        gridColumn: `span ${item.colSpan || 1}`,
-                        gridRow: `span ${item.rowSpan || 1}`,
-                      }}
-                    >
-                      <BentoItem
-                        item={item}
-                        isEditMode={isEditMode}
-                        isDragging={snapshot.isDragging}
-                      />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
+              <WidgetItem item={item} isEditMode={isEditMode} />
             </div>
-          )}
-        </Droppable>
-      </DragDropContextWithNoSSR>
+          );
+        })}
+      </div>
     </div>
   );
 };

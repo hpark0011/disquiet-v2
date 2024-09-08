@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export interface BentoItemData {
+export interface WidgetItemData {
   id: string;
   type: string;
   content: string;
@@ -9,17 +9,12 @@ export interface BentoItemData {
   rowSpan?: number;
 }
 
-interface BentoItemProps {
-  item: BentoItemData;
+interface WidgetItemProps {
+  item: WidgetItemData;
   isEditMode: boolean;
-  isDragging: boolean;
 }
 
-const BentoItem: React.FC<BentoItemProps> = ({
-  item,
-  isEditMode,
-  isDragging,
-}) => {
+const WidgetItem: React.FC<WidgetItemProps> = ({ item, isEditMode }) => {
   const jiggleVariants = {
     jiggle: {
       rotate: [0, -1, 1, -1, 1, 0],
@@ -42,7 +37,7 @@ const BentoItem: React.FC<BentoItemProps> = ({
       variants={jiggleVariants}
       animate={isEditMode ? 'jiggle' : 'static'}
       style={{
-        opacity: isDragging ? 0.5 : 1,
+        opacity: 1,
       }}
     >
       {item.content}
@@ -50,4 +45,4 @@ const BentoItem: React.FC<BentoItemProps> = ({
   );
 };
 
-export default BentoItem;
+export default WidgetItem;
