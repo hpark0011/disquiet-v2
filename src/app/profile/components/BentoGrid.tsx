@@ -2,7 +2,9 @@ import React from 'react';
 import { Profile } from '@/types/profile';
 import WidgetItem, { WidgetItemData } from './WidgetItem';
 import { Button } from '@/components/ui/button';
+import { useSwappy } from '@/hooks/useSwappy';
 import { useWidgets } from '@/hooks/useWidgets';
+import { AnimatePresence, motion } from 'framer-motion';
 interface BentoGridProps {
   profile: Profile;
   isEditMode: boolean;
@@ -15,6 +17,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
   setIsEditMode,
 }) => {
   const { widgets, changeWidgetSize, placeholderCount } = useWidgets();
+  useSwappy();
   const [items, setItems] = React.useState<WidgetItemData[]>([
     {
       id: 'item-1',
@@ -72,26 +75,29 @@ const BentoGrid: React.FC<BentoGridProps> = ({
       </Button>
 
       <div
-        className='grid grid-cols-4 gap-2'
+        className='swapy-container grid grid-cols-4 gap-2'
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gridAutoRows: '120px',
         }}
       >
-        {items.map((item, index) => {
-          return (
-            <div
-              key={item.id}
-              style={{
-                gridColumn: `span ${item.colSpan || 1}`,
-                gridRow: `span ${item.rowSpan || 1}`,
-              }}
-            >
-              <WidgetItem item={item} isEditMode={isEditMode} />
-            </div>
-          );
-        })}
+        <AnimatePresence>
+          {items.map((item, index) => {
+            return (
+              <motion.div
+                key={item.id}
+                data-swapy-slot={item.id}
+                style={{
+                  gridColumn: `span ${item.colSpan || 1}`,
+                  gridRow: `span ${item.rowSpan || 1}`,
+                }}
+              >
+                <WidgetItem item={item} isEditMode={isEditMode} />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
     </div>
   );

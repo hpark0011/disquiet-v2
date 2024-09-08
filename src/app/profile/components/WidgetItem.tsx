@@ -39,6 +39,7 @@ const WidgetItem: React.FC<WidgetItemProps> = ({ item, isEditMode }) => {
       style={{
         opacity: 1,
       }}
+      data-swapy-item={item.id}
     >
       {item.content}
     </motion.div>
