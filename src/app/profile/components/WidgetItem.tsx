@@ -2,21 +2,25 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Icon from '@/components/Icon';
 import { Button } from '@/components/ui/button';
-
-export interface WidgetItemData {
-  id: string;
-  type: string;
-  content: string;
-  colSpan?: number;
-  rowSpan?: number;
-}
+import { CardSize, WidgetCard } from '@/types/widget';
 
 interface WidgetItemProps {
-  item: WidgetItemData;
+  item: WidgetCard;
   isEditMode: boolean;
+  resizeButtons: {
+    id: string;
+    iconName: string;
+    size: CardSize;
+  }[];
+  changeWidgetSize: (id: string, newSize: CardSize) => void;
 }
 
-const WidgetItem: React.FC<WidgetItemProps> = ({ item, isEditMode }) => {
+const WidgetItem: React.FC<WidgetItemProps> = ({
+  item,
+  isEditMode,
+  resizeButtons,
+  changeWidgetSize,
+}) => {
   const jiggleVariants = {
     jiggle: {
       rotate: [0, -1, 1, -1, 1, 0],
@@ -30,25 +34,6 @@ const WidgetItem: React.FC<WidgetItemProps> = ({ item, isEditMode }) => {
       rotate: 0,
     },
   };
-
-  const resizeButtons = [
-    {
-      id: '1x1',
-      iconName: 'square',
-    },
-    {
-      id: '2x1',
-      iconName: 'rectangle',
-    },
-    {
-      id: '1x2',
-      iconName: 'rectangle.portrait',
-    },
-    {
-      id: '2x2',
-      iconName: 'square.large',
-    },
-  ];
 
   return (
     <motion.div
@@ -65,11 +50,21 @@ const WidgetItem: React.FC<WidgetItemProps> = ({ item, isEditMode }) => {
       {item.content}
       {isEditMode && (
         <div className='absolute inset-x-0 bottom-1 z-10 p-[2px] m-auto bg-black/80   shadow-lg rounded-lg flex flex-row w-fit h-fit backdrop-blur-[20px]'>
-          {resizeButtons.map((button) => (
-            <Button key={button.id} variant='icon' size='icon'>
-              <Icon name={button.iconName} />
-            </Button>
-          ))}
+          {resizeButtons.map((button) => {
+            console.log('button::::', button);
+            return (
+              <Button
+                key={button.id}
+                variant='icon'
+                size='icon'
+                onClick={() => {
+                  changeWidgetSize(item.id, button.size);
+                }}
+              >
+                <Icon name={button.iconName} />
+              </Button>
+            );
+          })}
         </div>
       )}
     </motion.div>
