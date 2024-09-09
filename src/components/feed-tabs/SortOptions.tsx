@@ -1,5 +1,5 @@
 import React from 'react';
-import TabGroup, { TabOption } from '@/components/ui/TabGroup';
+import TabGroup, { TabOption } from '@/components/TabGroup';
 import Icon from '@/components/Icon';
 
 export type SortValue = '인기' | '최신';

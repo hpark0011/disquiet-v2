@@ -10,3 +10,7 @@ export interface Profile {
   location?: string;
   website?: string;
 }
+
+export interface ProfileHeaderProps {
+  profile: Profile;
+}

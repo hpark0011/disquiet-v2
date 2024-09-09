@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 
 import { dummyProfile } from '@/data/profileData';
-import ProfileHeader from './components/ProfileHeader';
+
 import BentoGrid from './components/BentoGrid';
 import ProfileTabs from './components/ProfileTabs';
 import ProfileContent from './components/ProfileContent';
 import { Profile } from '@/types/profile';
+import ProfileHeader from '@/components/profile/profile-header/ProfileHeader';
 
 interface BentoGridProps {
   profile: Profile;

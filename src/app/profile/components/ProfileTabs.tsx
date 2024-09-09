@@ -1,5 +1,5 @@
 import React from 'react';
-import TabGroup, { TabOption } from '@/components/ui/TabGroup';
+import TabGroup, { TabOption } from '@/components/TabGroup';
 
 interface ProfileTabsProps {
   activeTab: string;
