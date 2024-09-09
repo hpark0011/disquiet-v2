@@ -1,29 +1,20 @@
 'use client';
 
 import React from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from './ui/dialog';
-import { Button } from './ui/button';
+import { Dialog, DialogClose, DialogContent, DialogTitle } from './ui/dialog';
 import LogEditor from './LogEditor';
 import { useLogSubmit } from '../hooks/useLogSubmit';
-
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import Icon from '@/components/Icon';
 interface LogEditorModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (logData: { content: string }) => void; // Add this line
 }
 
-const LogEditorModal: React.FC<LogEditorModalProps> = ({
-  isOpen,
-  onClose,
-  onSubmit,
-}) => {
+const LogEditorModal: React.FC<LogEditorModalProps> = ({ isOpen, onClose }) => {
   const { handleSubmitLog } = useLogSubmit();
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const handleSubmit = (content: string) => {
     const success = handleSubmitLog({ content });
@@ -34,8 +25,19 @@ const LogEditorModal: React.FC<LogEditorModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='sm:max-w-[620px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.2),0px_8px_32px_-4px_rgba(0,0,0,0.4)]'>
-        <LogEditor onSubmit={handleSubmit} isModal={true} />
+      <DialogContent variant='primary' size='lg'>
+        {isMobile && (
+          <div className='flex flex-row justify-between items-center py-2 px-3 border-b border-divider-primary'>
+            <DialogClose className='text-link text-xs'>취소</DialogClose>
+            <DialogTitle className='text-sm font-medium text-center'>
+              로그 작성
+            </DialogTitle>
+            <a href='#' className='text-xs flex items-center text-link gap-1'>
+              로그 작성 팁<Icon name='info.circle' className='w-4 h-4' />
+            </a>
+          </div>
+        )}
+        <LogEditor onSubmit={handleSubmit} isModal />
       </DialogContent>
     </Dialog>
   );
