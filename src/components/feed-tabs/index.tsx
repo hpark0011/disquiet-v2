@@ -14,7 +14,6 @@ const FeedTabs: React.FC = () => {
     isLogModalOpen,
     handleTabChange,
     handleSortChange,
-    handleOpenNewLogModal,
     handleCloseNewLogModal,
     handleSubmitNewLog,
     getNewPostConfig,

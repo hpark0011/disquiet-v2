@@ -38,7 +38,7 @@ const EllipsisDropdown: React.FC = () => {
       }`}
     >
       <Icon name={action.icon} className='w-5 h-5' />
-      <span className='text-label text-primary'>{action.label}</span>
+      <span className='text-label text-secondary'>{action.label}</span>
     </DropdownMenuItem>
   );
 
