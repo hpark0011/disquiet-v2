@@ -51,7 +51,6 @@ const WidgetItem: React.FC<WidgetItemProps> = ({
       {isEditMode && (
         <div className='absolute inset-x-0 bottom-1 z-10 p-[2px] m-auto bg-black/80   shadow-lg rounded-lg flex flex-row w-fit h-fit backdrop-blur-[20px]'>
           {resizeButtons.map((button) => {
-            console.log('button::::', button);
             return (
               <Button
                 key={button.id}

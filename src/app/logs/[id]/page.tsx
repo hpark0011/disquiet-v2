@@ -5,7 +5,7 @@ import PostCard from '@/components/post-card/PostCard';
 import exampleAvatar from '../../../../public/images/profile.jpg'; // Replace with actual image path
 import exampleImage from '../../../mock_images/feed/tabs.png'; // Replace with actual image path
 
-async function getPostById(id: string): Promise<Log> {
+async function getLogById(id: string): Promise<Log> {
   return {
     id,
     author: {
@@ -25,16 +25,16 @@ async function getPostById(id: string): Promise<Log> {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const post = await getPostById(params.id);
+  const post = await getLogById(params.id);
   return { title: `Post ${post.id}` };
 }
 
-export default async function PostDetail({
+export default async function LogDetail({
   params,
 }: {
   params: { id: string };
 }) {
-  const post = await getPostById(params.id);
+  const post = await getLogById(params.id);
 
   if (!post) {
     return <div>Post not found</div>;
