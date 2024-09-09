@@ -20,6 +20,7 @@ const buttonVariants = cva(
           'bg-gradient-to-b from-[#2c2c2e]/70 to-[#2c2c2e] text-white font-normal shadow-primary-button hover:shadow-primary-button-hover text-xs transform transition-all duration-150',
         secondary:
           'bg-white text-black font-normal shadow-secondary-button hover:shadow-secondary-button-hover text-xs transform transition-all duration-150',
+        icon: 'p-0.5 max-h-7 max-w-7 hover:bg-white/15 rounded-md',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -27,6 +28,7 @@ const buttonVariants = cva(
         sm: 'h-8 rounded-lg px-3',
         lg: 'h-11 rounded-xl px-8',
         icon: 'h-10 w-10',
+        'icon-sm': 'h-5 w-5',
       },
     },
     defaultVariants: {

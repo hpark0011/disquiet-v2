@@ -1,17 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Log } from '@/types/log';
 import PostCardHeader from './PostCardHeader';
 import PostCardFooter from './PostCardFooter';
 
-interface PostCardProps {
-  post: Log;
-}
-
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+const PostCard = ({ post }: { post: Log }) => {
   return (
-    <div className='flex flex-col relative'>
-      <PostCardHeader post={post} postType='log' /> {/* body */}
+    <Link href={`/posts/${post.id}`} className='flex flex-col relative'>
+      <PostCardHeader post={post} postType='log' />
       <div className='flex flex-col pl-[36px] -top-[8px] relative'>
         <div className='bg-white rounded-post-card shadow-post-card-light p-4'>
           <p className='text-sm text-primary'>{post.content}</p>
@@ -34,7 +31,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

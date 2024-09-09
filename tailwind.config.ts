@@ -85,11 +85,18 @@ const config = {
               '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 4px rgba(109, 85, 255, 0.4)',
           },
         },
+        jiggle: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+          '75%': { transform: 'rotate(-1deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         glow: 'glow 1.6s ease-in-out infinite',
+        jiggle: 'jiggle 0.5s ease-in-out infinite',
       },
       boxShadow: {
         'primary-button':
@@ -111,6 +118,10 @@ const config = {
         'premium-article-image': '0px 14px 28px -7px rgba(0, 0, 0, 0.4)',
         'new-tab':
           '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 2px rgba(109, 85, 255, 0.4)',
+        modal:
+          '0px 16px 32px -8px rgba(0, 0, 0, 0.5), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
+        dropdown:
+          '0px 4px 8px -2px rgba(0, 0, 0, 0.10), 0px 0px 4px 0px rgba(0, 0, 0, 0.05)',
       },
       textColor: {
         primary: 'var(--color-text-primary)',
