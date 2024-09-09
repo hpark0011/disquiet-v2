@@ -120,6 +120,8 @@ const config = {
           '0px 4px 8px -2px rgba(109, 85, 255, 0.8), 0px 0px 0px 2px rgba(109, 85, 255, 0.4)',
         modal:
           '0px 16px 32px -8px rgba(0, 0, 0, 0.5), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
+        dropdown:
+          '0px 4px 8px -2px rgba(0, 0, 0, 0.10), 0px 0px 4px 0px rgba(0, 0, 0, 0.05)',
       },
       textColor: {
         primary: 'var(--color-text-primary)',

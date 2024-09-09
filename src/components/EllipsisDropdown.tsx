@@ -33,12 +33,12 @@ const EllipsisDropdown: React.FC = () => {
     <DropdownMenuItem
       key={index}
       onClick={action.onClick}
-      className={`flex items-center gap-2 cursor-pointer rounded-lg ${
+      className={`flex items-center w-fit gap-2 cursor-pointer rounded-lg ${
         action.className || ''
       }`}
     >
-      <Icon name={action.icon} className='w-6 h-6' />
-      <span className='text-label font-secondary'>{action.label}</span>
+      <Icon name={action.icon} className='w-5 h-5' />
+      <span className='text-label text-primary'>{action.label}</span>
     </DropdownMenuItem>
   );
 
