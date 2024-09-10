@@ -9,3 +9,5 @@ export interface PostCardFooterProps {
   comments: number;
   reposts: number;
 }
+
+
