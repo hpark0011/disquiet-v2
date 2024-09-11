@@ -7,7 +7,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from '../ui/dialog';
-import { ConfirmationDialogProps } from './types/ellipsisDropdown';
+import { ConfirmationDialogProps } from '../../types/ellipsis-dropdown';
 import { Button } from '../ui/button';
 
 const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({

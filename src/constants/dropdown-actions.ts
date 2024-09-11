@@ -1,4 +1,4 @@
-import { DropdownAction } from '../types/ellipsisDropdown';
+import { DropdownAction } from '../types/ellipsis-dropdown';
 
 export const dropdownActions: DropdownAction[] = [
   {

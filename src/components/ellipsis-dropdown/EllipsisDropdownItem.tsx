@@ -1,7 +1,7 @@
 import React from 'react';
 import { DropdownMenuItem } from '../ui/dropdown-menu';
 import Icon from '../Icon';
-import { DropdownAction } from './types/ellipsisDropdown';
+import { DropdownAction } from '../../types/ellipsis-dropdown';
 
 interface DropdownItemProps {
   action: DropdownAction;

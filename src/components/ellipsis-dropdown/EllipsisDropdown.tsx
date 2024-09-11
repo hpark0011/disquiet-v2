@@ -6,9 +6,9 @@ import {
 } from '../ui/dropdown-menu';
 import { Button } from '../ui/button';
 import Icon from '../Icon';
-import { dropdownActions } from './constants/dropdownActions';
+import { dropdownActions } from '../../constants/dropdown-actions';
 import DropdownItem from './EllipsisDropdownItem';
-import { useDialogManager } from './hooks/useConfirmationDialog';
+import { useDialogManager } from '../../hooks/useConfirmationDialog';
 import ConfirmationDialog from './ConfirmationDialog';
 
 const EllipsisDropdown: React.FC = () => {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DropdownAction } from '../types/ellipsisDropdown';
+import { DropdownAction } from '../types/ellipsis-dropdown';
 
 export const useDialogManager = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
