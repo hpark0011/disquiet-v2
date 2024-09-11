@@ -1,10 +1,10 @@
 import React from 'react';
 import { Profile } from '@/types/profile';
-import WidgetItem from './WidgetItem';
 import { Button } from '@/components/ui/button';
 import { useSwappy } from '@/hooks/useSwappy';
 import { useWidgets } from '@/hooks/useWidgets';
 import { AnimatePresence, motion } from 'framer-motion';
+import WidgetItem from './WidgetItem';
 
 interface BentoGridProps {
   profile: Profile;

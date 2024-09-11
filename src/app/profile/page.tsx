@@ -2,18 +2,11 @@
 import React, { useState } from 'react';
 
 import { dummyProfile } from '@/data/profileData';
-
-import BentoGrid from './components/BentoGrid';
-import ProfileTabs from './components/ProfileTabs';
-import ProfileContent from './components/ProfileContent';
+import BentoGrid from '@/components/profile/widgets/BentoGrid';
+import ProfileTabs from '@/components/profile/ProfileTabs';
+import ProfileContent from '@/components/profile/ProfileContent';
 import { Profile } from '@/types/profile';
 import ProfileHeader from '@/components/profile/profile-header/ProfileHeader';
-
-interface BentoGridProps {
-  profile: Profile;
-  isEditMode: boolean;
-  setIsEditMode: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('posts');
