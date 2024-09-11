@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { dummyLogs } from '@/data/dummyLogs';
 import PostCard from '../post-card/PostCard';
-import LogEditor from '../LogEditor';
+import LogEditor from '../log-editor/LogEditor';
 import { useLogSubmit } from '@/hooks/useLogSubmit';
 
 const LogFeed = () => {

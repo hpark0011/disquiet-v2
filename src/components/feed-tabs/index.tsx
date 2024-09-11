@@ -4,8 +4,8 @@ import React from 'react';
 import TabGroup from './FeedTabOptions';
 import { SortOptions } from './SortOptions';
 import { NewPostButton } from './NewPostButton';
-import LogEditorModal from '../LogEditorModal';
 import { useFeedTabs } from '../../hooks/useFeedTabs';
+import LogEditorModal from '../log-editor/LogEditorModal';
 
 const FeedTabs: React.FC = () => {
   const {

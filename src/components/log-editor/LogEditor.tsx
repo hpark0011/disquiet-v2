@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Icon from '@/components/Icon';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
 interface LogEditorProps {
   onSubmit: (content: string) => void;
   onClose?: () => void;
-  isModal?: boolean; // Add this prop
+  isModal?: boolean;
 }
 
 const LogEditor: React.FC<LogEditorProps> = ({

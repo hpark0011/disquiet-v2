@@ -2,7 +2,7 @@
 
 import React from 'react';
 import QuizPostCard from '@/components/quiz/QuizPostCard';
-import LogEditor from '@/components/LogEditor';
+import LogEditor from '@/components/log-editor/LogEditor';
 import { useLogSubmit } from '@/hooks/useLogSubmit';
 
 const MainFeed: React.FC = () => {
