@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftSidebar from '@/app/(home)/components/LeftSidebar/LeftSidebar';
-import BackgroundColorSetter from '@/app/(home)/components/BackgroundColorSetter';
+import LeftSidebar from '@/components/home/left-sidebar/LeftSidebar';
+import BackgroundColorSetter from '@/components/home/BackgroundColorSetter';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

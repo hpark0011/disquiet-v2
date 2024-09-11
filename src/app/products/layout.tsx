@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import LeftSidebar from '@/app/(home)/components/LeftSidebar/LeftSidebar';
-import BackgroundColorSetter from '@/app/(home)/components/BackgroundColorSetter';
+import LeftSidebar from '@/components/home/left-sidebar/LeftSidebar';
+import BackgroundColorSetter from '@/components/home/BackgroundColorSetter';
 import FeedTabs from '@/components/feed-tabs';
 import { usePathname, useRouter } from 'next/navigation';
 
