@@ -16,13 +16,9 @@ src
 │ │ └── layout.tsx
 │ ├── profile
 │ │ └── layout.tsx
-│ ├── globals.css
 │ └── layout.tsx
 ├── components
 │ ├── article
-│ │ ├── ArticleCard.tsx
-│ │ ├── LinkedProduct.tsx
-│ │ └── Tags.tsx
 │ ├── ellipsis-dropdown
 │ ├── feed-tabs
 │ ├── home
@@ -66,6 +62,9 @@ src
 │ └── requirements.md
 ├── styles
 │ └── components.css
+│ └── globals.css
+│ └── primitives.css
+│ └── semantics.css
 ├── types
 │ ├── article.ts
 │ └── log.ts
