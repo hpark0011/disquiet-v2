@@ -2,7 +2,7 @@ export { default as ACircleFillIcon } from '@/public/icons/a.circle.fill.svg';
 export { default as ChartBarFillIcon } from '@/public/icons/chart.bar.fill.svg';
 export { default as GearIcon } from '@/public/icons/gear.svg';
 export { default as HouseFillIcon } from '@/public/icons/house.fill.svg';
-export { default as LogoIcon } from '@/public/icons/logo.symbol.svg';
+export { default as LogoIcon } from '@/public/logo.svg';
 export { default as SquarePencilIcon } from '@/public/icons/square.pencil.svg';
 export { default as XmarkIcon } from '@/public/icons/xmark.svg';
 export { default as ChecklistIcon } from '@/public/icons/checklist.svg';
